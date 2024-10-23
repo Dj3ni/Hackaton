@@ -26,17 +26,10 @@ class ChoiceFixtures extends Fixture implements DependentFixtureInterface
         // One choice leads directly to ending
         $choice6 = new Choice();
         $choice6->setEnding($this->getReference("ending_1"))
-        ->setText($faker->paragraph());
+                ->setText($faker->paragraph());
         $manager->persist($choice6);
         
         $manager->flush();
-
-        // for ($i=0; $i < 5; $i++) { 
-        //     $choice = $this->getReference("choice_$i");
-        //     $choice->addDialog($this->getReference("dialog_$i"));
-        // }
-
-        // $manager->flush();
 
     }
 
@@ -44,7 +37,6 @@ class ChoiceFixtures extends Fixture implements DependentFixtureInterface
     {
         return([
             EndingFixture::class,
-            // DialogsFixture::class,
         ]);
     }
 
