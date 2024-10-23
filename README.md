@@ -33,7 +33,9 @@ Lorsque vous faites un git push, cela va créer une demande de pull request dans
 Quand vous cliquez sur compare and pull request, dans le menu du haut, veuillez sélectionner la branche "develop" et non "main"!
 ![image](https://github.com/user-attachments/assets/aa85cf8a-41be-4acd-81e2-a2832a92ba26)
 
-Mettez un petit message avec e que vous avez fait etc, comme ça je sais que je dois checker s'il n'y a pas de problème de conflit dans certains fichiers.
+Mettez un petit message avec e que vous avez fait etc,  puis sur créer pull request (et rien d'autre!!) De cette manière que je dois checker s'il n'y a pas de problème de conflit dans certains fichiers.
+![image](https://github.com/user-attachments/assets/e1f24a33-641c-481a-bc67-21b935124d40)
+
 
 Si vous avez la moindre hésitaton, demandez-moi svp je viendrai vous aider avec plaisir. Je préfère venir vous aider 10 fois et que tout roule plutôt que de galérer le dernier jour pcq il y a plein de probs :)
 
