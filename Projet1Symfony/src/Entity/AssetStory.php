@@ -17,11 +17,11 @@ class AssetStory
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $type = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $path = null;
+    // #[ORM\Column(length: 255, nullable: true)]
+    // private ?string $path = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $description = null;
+    // #[ORM\Column(type: Types::TEXT)]
+    // private ?string $description = null;
 
     /********************** Relations ***********/ 
 
@@ -48,29 +48,29 @@ class AssetStory
         return $this;
     }
 
-    public function getPath(): ?string
-    {
-        return $this->path;
-    }
+    // public function getPath(): ?string
+    // {
+    //     return $this->path;
+    // }
 
-    public function setPath(?string $path): static
-    {
-        $this->path = $path;
+    // public function setPath(?string $path): static
+    // {
+    //     $this->path = $path;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
+    // public function getDescription(): ?string
+    // {
+    //     return $this->description;
+    // }
 
-    public function setDescription(string $description): static
-    {
-        $this->description = $description;
+    // public function setDescription(string $description): static
+    // {
+    //     $this->description = $description;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getStoryNode(): ?StoryNode
     {
