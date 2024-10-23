@@ -3,6 +3,15 @@
 ## Comment utiliser Git en groupe?
 J'ai créé un repos utilisant git flow du coup merci d'utiliser ces commandes-ci:
 
+```
+git clone https://github.com/Dj3ni/Hackaton.git
+```
+
+Pour initialiser le git flow chez vous aussi
+```
+git flow init
+```
+
 Quand vous clonez le repos, vous allez être directement sur la branche "Develop". Merci de ne rien créer/modifier dessus. 
 Faites directement la commande suivante afin de créer votre branche de travail.
 
