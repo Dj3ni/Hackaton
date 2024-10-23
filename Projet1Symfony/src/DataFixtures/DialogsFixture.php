@@ -33,8 +33,8 @@ class DialogsFixture extends Fixture implements DependentFixtureInterface
                 $dialog = $this->getReference("dialog_$i");
                 $choice = $this->getReference("choice_$i");
                 $dialog->setChoice($choice)
-                ->setPerso($this->getReference("perso_$i"));
-                // ->setStoryNode($this->getReference("storyNode_$i"));
+                ->setPerso($this->getReference("perso_$i"))
+                ->setStoryNode($this->getReference("storyNode_$i"));
             }
         $manager->flush();
     }
@@ -45,7 +45,7 @@ class DialogsFixture extends Fixture implements DependentFixtureInterface
         return([
             ChoiceFixtures::class,
             CharacterFixtures::class,
-            // StoryNodeFixture::class,
+            StoryNodeFixture::class,
         ]);
     }
     

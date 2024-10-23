@@ -9,7 +9,7 @@ use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class StoryNodeFixture extends Fixture implements DependentFixtureInterface
+class StoryNodeFixture extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
@@ -24,27 +24,7 @@ class StoryNodeFixture extends Fixture implements DependentFixtureInterface
             
         }
         $manager->flush();
-        
-        for ($j=1; $j < 5 ; $j++) { 
-            // $storyNode->addStoryChoice($this->getReference("choice_$j"))
-            $storyNode  ->addEnding($this->getReference("ending_$j"))
-                        ->addDialog($this->getReference("dialog_$j"));
-                        // ->addAssetsStory($this->getReference("assetsStory_$j"));
-        }
-        $manager->flush();
 
-    }
-
-    
-    public function getDependencies()
-    {
-        return ([
-            // StoryChoiceFixtures::class,
-            // AssetsStoryFixture::class,
-            EndingFixture::class,
-            DialogsFixture::class,
-        ]);
-    
     }
     
 }
