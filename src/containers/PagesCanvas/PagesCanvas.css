@@ -1,0 +1,46 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	align-items: start;
+	min-width: 1280px;
+
+	background-image: url("/office1.1.jpg");
+	background-size: cover;
+}
+
+.content {
+	flex: 1;
+}
+
+.dialogue {
+	border: solid 1px rgb(185, 51, 51);
+	padding: 8ch;
+	margin-bottom: 2ch;
+	text-align: left;
+	position: relative;
+	background-color: rgba(245, 222, 179, 0.678);
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	height: 200px;
+	overflow-y: scroll;
+	font-family: "Courier New", Courier, monospace;
+}
+
+.CharaName {
+	margin-left: 18ch;
+	margin-right: auto;
+	padding-left: 2ch;
+	padding-right: 2ch;
+	border: solid 1px black;
+	color: black;
+	background-color: rgba(245, 222, 179, 0.678);
+}
