@@ -1,3 +1,8 @@
+@font-face {
+	font-family: Pixel;
+	src: url(/src/fonts/DePixelKlein.ttf);
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -13,6 +18,7 @@
 
 	background-image: url("/office1.1.jpg");
 	background-size: cover;
+	position: relative;
 }
 
 .content {
@@ -20,8 +26,8 @@
 }
 
 .dialogue {
-	border: solid 1px rgb(185, 51, 51);
-	padding: 8ch;
+	border: solid 3px black;
+	padding: 2ch;
 	margin-bottom: 2ch;
 	text-align: left;
 	position: relative;
@@ -32,15 +38,28 @@
 	color: black;
 	height: 200px;
 	overflow-y: scroll;
-	font-family: "Courier New", Courier, monospace;
+	text-shadow: 1px 1px 2px rgba(245, 222, 179, 0.678);
+
+	font-family: Pixel;
 }
 
 .CharaName {
-	margin-left: 18ch;
+	margin-left: 14ch;
 	margin-right: auto;
 	padding-left: 2ch;
 	padding-right: 2ch;
-	border: solid 1px black;
+	border: solid 3px black;
+	border-bottom: none;
 	color: black;
+	font-family: Pixel;
+	text-shadow: 1px 1px 2px rgba(245, 222, 179, 0.678);
+
 	background-color: rgba(245, 222, 179, 0.678);
+}
+
+.sprite {
+	position: absolute;
+	right: 100px;
+	top: 160px;
+	height: 60%;
 }
