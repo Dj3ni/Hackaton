@@ -1,5 +1,7 @@
-.dialogueBox {
-	border: solid 1px black;
-	padding: 8ch;
-	text-align: left;
+.downArrow {
+	width: 2ch;
+	height: 2ch;
+	position: absolute;
+	bottom: 2ch;
+	right: 2ch;
 }
