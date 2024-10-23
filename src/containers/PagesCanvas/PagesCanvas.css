@@ -9,8 +9,9 @@
 	flex-direction: column;
 	min-height: 100vh;
 	align-items: start;
+	min-width: 1280px;
 
-	background-image: url("../../../public/office.jpg");
+	background-image: url("/office1.1.jpg");
 	background-size: cover;
 }
 
@@ -24,11 +25,22 @@
 	margin-bottom: 2ch;
 	text-align: left;
 	position: relative;
-	background-color: rgba(245, 222, 179, 0.404);
+	background-color: rgba(245, 222, 179, 0.678);
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	height: 200px;
+	overflow-y: scroll;
+	font-family: "Courier New", Courier, monospace;
 }
 
 .CharaName {
+	margin-left: 18ch;
+	margin-right: auto;
 	padding-left: 2ch;
 	padding-right: 2ch;
 	border: solid 1px black;
+	color: black;
+	background-color: rgba(245, 222, 179, 0.678);
 }
