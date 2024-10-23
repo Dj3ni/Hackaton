@@ -25,7 +25,7 @@ class ChoiceFixtures extends Fixture
 
         // One choice leads directly to ending
         // $choice6 = new Choice();
-        // $choice2->setEnding($this->getReference("ending_1"));
+        // $choice6->setEnding($this->getReference("ending_1"));
         // $manager->persist($choice6);
 
         $manager->flush();

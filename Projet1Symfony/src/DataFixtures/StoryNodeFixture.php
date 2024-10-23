@@ -45,6 +45,7 @@ class StoryNodeFixture extends Fixture
             EndingFixture::class,
             DialogsFixture::class,
         ]);
+    
     }
     
 }
