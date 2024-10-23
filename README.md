@@ -36,6 +36,8 @@ git commit -m "ce que vous avez fait depuis la dernière sauvegarde"
 
 Pensez à faire un commit avant de changer de fichier/dossier ex: si je fais les background, je commit avant de m'occuper du personnage. Cela permettra de limiter le risque de perte d'info et d'éviter de recommencer trop en cas d'erreur/ de problème
 
+Pour le premier push, il faut aller dans VsCode cliquer sur publish branch d'abord.
+
 Lorsque vous faites un git push, cela va créer une demande de pull request dans le github:
 ![image](https://github.com/user-attachments/assets/6075072a-4de6-4eb4-9811-56d4e525a8de)
 
