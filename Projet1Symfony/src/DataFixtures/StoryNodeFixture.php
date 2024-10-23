@@ -7,8 +7,9 @@ use Faker\Factory;
 use App\Entity\StoryNode;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class StoryNodeFixture extends Fixture
+class StoryNodeFixture extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -17,23 +18,21 @@ class StoryNodeFixture extends Fixture
         for ($i = 0; $i < 5; $i++) {    
             $storyNode = new StoryNode();
             $storyNode  ->setTitle($faker->paragraph);
-
-            // for ($j=1; $j < 5 ; $j++) { 
-            //     # code...
-            //     $storyNode->addStoryChoice($this->getReference("choice_$j"))
-            //                 ->addEnding($this->getReference("ending_$j"))
-            //                 ->addDialog($this->getReference("dialog_$j"))
-            //                 ->addAssetsStory($this->getReference("assetsStory_$j"));
-            // }
-
-            
             $this->addReference("storyNode_$i",$storyNode);
-
+            
             $manager->persist($storyNode);
             
         }
         $manager->flush();
-    
+        
+        for ($j=1; $j < 5 ; $j++) { 
+            // $storyNode->addStoryChoice($this->getReference("choice_$j"))
+            $storyNode  ->addEnding($this->getReference("ending_$j"))
+                        ->addDialog($this->getReference("dialog_$j"));
+                        // ->addAssetsStory($this->getReference("assetsStory_$j"));
+        }
+        $manager->flush();
+
     }
 
     
