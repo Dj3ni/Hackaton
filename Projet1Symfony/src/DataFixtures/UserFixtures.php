@@ -11,7 +11,7 @@ class UserFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-     
+    
         $faker = Faker\Factory::create('fr_FR');
 
         for ($i = 0; $i < 5; $i++) {
@@ -21,6 +21,7 @@ class UserFixtures extends Fixture
             $user->setEmail($faker->email);
             $user->setPassword($faker->password);
             $user->setRoles(['ROLE_USER']);
+            $this->addReference("user_$i",$user);
 
             $manager->persist($user);
             
