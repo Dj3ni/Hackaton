@@ -11,6 +11,7 @@ Pour initialiser le git flow chez vous aussi
 ```
 git flow init
 ```
+Il faut changer la master en main et pour le reste
 
 Quand vous clonez le repos, vous allez être directement sur la branche "Develop". Merci de ne rien créer/modifier dessus. 
 Faites directement la commande suivante afin de créer votre branche de travail.
