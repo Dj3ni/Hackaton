@@ -23,6 +23,14 @@ class AssetStory
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
+    /********************** Relations ***********/ 
+
+    #[ORM\ManyToOne(inversedBy: 'assetsStories')]
+    private ?StoryNode $storyNode = null;
+
+    #[ORM\ManyToOne(inversedBy: 'stories')]
+    private ?Asset $asset = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +68,30 @@ class AssetStory
     public function setDescription(string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getStoryNode(): ?StoryNode
+    {
+        return $this->storyNode;
+    }
+
+    public function setStoryNode(?StoryNode $storyNode): static
+    {
+        $this->storyNode = $storyNode;
+
+        return $this;
+    }
+
+    public function getAsset(): ?Asset
+    {
+        return $this->asset;
+    }
+
+    public function setAsset(?Asset $asset): static
+    {
+        $this->asset = $asset;
 
         return $this;
     }

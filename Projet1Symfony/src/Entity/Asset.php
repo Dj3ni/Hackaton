@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AssetRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,22 @@ class Asset
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $choiceCondition = null;
+
+   /********************** Relations ***********/ 
+    /**
+     * @var Collection<int, AssetStory>
+     */
+    #[ORM\OneToMany(targetEntity: AssetStory::class, mappedBy: 'asset')]
+    private Collection $stories;
+
+    #[ORM\ManyToOne(inversedBy: 'assets')]
+    private ?Character $perso = null;
+    
+
+    public function __construct()
+    {
+        $this->stories = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +93,48 @@ class Asset
     public function setChoiceCondition(?string $choiceCondition): static
     {
         $this->choiceCondition = $choiceCondition;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, AssetStory>
+     */
+    public function getStories(): Collection
+    {
+        return $this->stories;
+    }
+
+    public function addStory(AssetStory $story): static
+    {
+        if (!$this->stories->contains($story)) {
+            $this->stories->add($story);
+            $story->setAsset($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStory(AssetStory $story): static
+    {
+        if ($this->stories->removeElement($story)) {
+            // set the owning side to null (unless already changed)
+            if ($story->getAsset() === $this) {
+                $story->setAsset(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPerso(): ?Character
+    {
+        return $this->perso;
+    }
+
+    public function setPerso(?Character $perso): static
+    {
+        $this->perso = $perso;
 
         return $this;
     }

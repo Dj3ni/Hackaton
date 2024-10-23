@@ -17,6 +17,12 @@ class UserChoice
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $timestamp = null;
 
+    #[ORM\ManyToOne(inversedBy: 'choices')]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'userChoices')]
+    private ?Choice $choice = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -30,6 +36,30 @@ class UserChoice
     public function setTimestamp(?\DateTimeInterface $timestamp): static
     {
         $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getChoice(): ?Choice
+    {
+        return $this->choice;
+    }
+
+    public function setChoice(?Choice $choice): static
+    {
+        $this->choice = $choice;
 
         return $this;
     }

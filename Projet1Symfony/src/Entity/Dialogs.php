@@ -19,6 +19,16 @@ class Dialogs
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $state = null;
+    
+/********************** Relations ***********/ 
+    #[ORM\ManyToOne(inversedBy: 'dialogs')]
+    private ?Choice $choice = null;
+
+    #[ORM\ManyToOne(inversedBy: 'dialogs')]
+    private ?StoryNode $storyNode = null;
+
+    #[ORM\ManyToOne(inversedBy: 'dialogs')]
+    private ?Character $perso = null;
 
     public function getId(): ?int
     {
@@ -45,6 +55,42 @@ class Dialogs
     public function setState(?string $state): static
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    public function getChoice(): ?Choice
+    {
+        return $this->choice;
+    }
+
+    public function setChoice(?Choice $choice): static
+    {
+        $this->choice = $choice;
+
+        return $this;
+    }
+
+    public function getStoryNode(): ?StoryNode
+    {
+        return $this->storyNode;
+    }
+
+    public function setStoryNode(?StoryNode $storyNode): static
+    {
+        $this->storyNode = $storyNode;
+
+        return $this;
+    }
+
+    public function getPerso(): ?Character
+    {
+        return $this->perso;
+    }
+
+    public function setPerso(?Character $perso): static
+    {
+        $this->perso = $perso;
 
         return $this;
     }
