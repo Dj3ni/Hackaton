@@ -28,4 +28,12 @@ git commit -m "ce que vous avez fait depuis la dernière sauvegarde"
 Pensez à faire un commit avant de changer de fichier/dossier ex: si je fais les background, je commit avant de m'occuper du personnage. Cela permettra de limiter le risque de perte d'info et d'éviter de recommencer trop en cas d'erreur/ de problème
 
 Lorsque vous faites un git push, cela va créer une demande de pull request dans le github:
+![image](https://github.com/user-attachments/assets/6075072a-4de6-4eb4-9811-56d4e525a8de)
+
+Quand vous cliquez sur compare and pull request, dans le menu du haut, veuillez sélectionner la branche "develop" et non "main"!
+![image](https://github.com/user-attachments/assets/aa85cf8a-41be-4acd-81e2-a2832a92ba26)
+
+Mettez un petit message avec e que vous avez fait etc, comme ça je sais que je dois checker s'il n'y a pas de problème de conflit dans certains fichiers.
+
+Si vous avez la moindre hésitaton, demandez-moi svp je viendrai vous aider avec plaisir. Je préfère venir vous aider 10 fois et que tout roule plutôt que de galérer le dernier jour pcq il y a plein de probs :)
 
