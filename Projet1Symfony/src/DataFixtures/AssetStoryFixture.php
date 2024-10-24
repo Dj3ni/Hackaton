@@ -13,9 +13,9 @@ class AssetStoryFixture extends Fixture implements DependentFixtureInterface
     {
         for ($i = 0; $i < 5; $i++) {    
             $assetStory = new AssetStory();
-            $asset = $this->getReference("asset_$i");
+            // $asset = $this->getReference("asset_$i");
             // $story = $this->getReference("storyNode_$i");
-            $assetStory->setAsset($asset);
+            // $assetStory->setAsset($asset);
                         // ->setStoryNode($story);
             
             $manager->persist($assetStory);
