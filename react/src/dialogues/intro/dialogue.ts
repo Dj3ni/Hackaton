@@ -2,7 +2,8 @@
 export type Character = {
 		name: string;
 		dialogue: string[];
-		url?: string;
+		url: string;
+		choices?: string[]
 	};
 
 export const hero: Character = {
@@ -19,9 +20,12 @@ export const hero: Character = {
 			"Come in! ",
 			"Green directives? ",
 			"But I don’t know anything about that…",
+			
+			
             "Alright then, let’s see… "
 		],
 		url: "",
+		choices : ["How does it work? ","OK, let’s do this!",]
 	};
 
 export const agatha: Character = {
@@ -44,7 +48,7 @@ export const agatha: Character = {
             "My advice is to think carefully before you act.",
             "Thank you, Mr Hiro. I can already see what a great president you will become! "
 		],
-		url: "/assistant_normal.png",
+		url: "/assistant_happy.png",
 	};
 
 	 
