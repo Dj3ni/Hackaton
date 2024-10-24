@@ -19,6 +19,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
     normalizationContext: ['groups' => ['read']],
     denormalizationContext: ['groups' => ['write']]
 )]
+
 class UserChoice
 {
     #[ORM\Id]

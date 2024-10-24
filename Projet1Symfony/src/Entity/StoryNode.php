@@ -22,6 +22,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
     denormalizationContext: ['groups' => ['write']]
 )]
 
+
 class StoryNode
 {
     #[ORM\Id]
