@@ -441,7 +441,122 @@ class DialogsFixture extends Fixture implements DependentFixtureInterface
                     ->setPerso($this->getReference("perso_4"));
         $manager->persist($dialog22Scene2);
 
+        /************** Scene 3 ***************/
+        /** Hiro */
+        $dialog1Scene3 = new Dialogs();
+        $dialog1Scene3 ->setText("(Minako Parsnip.)");
+        $this->addReference("dialog1Scene3", $dialog1Scene3 );
+        $dialog1Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                    ->setPerso($this->getReference("perso_1"));
+        $manager->persist($dialog1Scene3);
 
+        $dialog2Scene3 = new Dialogs();
+        $dialog2Scene3 ->setText("(She seems quite dedicated to her job.)");
+        $this->addReference("dialog2Scene3", $dialog2Scene3 );
+        $dialog2Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                    ->setPerso($this->getReference("perso_1"));
+        $manager->persist($dialog2Scene3);
+
+        $dialog3Scene3 = new Dialogs();
+        $dialog3Scene3 ->setText("(I wonder if my father’s other employees are as involved in sustainability as she is.) ");
+        $this->addReference("dialog3Scene3", $dialog3Scene3 );
+        $dialog3Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                    ->setPerso($this->getReference("perso_1"));
+        $manager->persist($dialog3Scene3);
+
+        /** Kevin Verdâtre */
+
+        $dialog4Scene3 = new Dialogs();
+        $dialog4Scene3 ->setText("...");
+        $this->addReference("dialog4Scene3", $dialog4Scene3 );
+        $dialog4Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                ->setState("Neutral")
+                ->setPerso($this->getReference("perso_5"));
+        $manager->persist($dialog4Scene3);
+
+        /** Hiro */
+        $dialog5Scene3 = new Dialogs();
+        $dialog5Scene3 ->setText("...");
+        $this->addReference("dialog5Scene3", $dialog5Scene3 );
+        $dialog5Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                    ->setPerso($this->getReference("perso_1"));
+        $manager->persist($dialog5Scene3);
+
+        $dialog6Scene3 = new Dialogs();
+        $dialog6Scene3 ->setText("... who are you? ");
+        $this->addReference("dialog6Scene3", $dialog6Scene3 );
+        $dialog6Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                    ->setPerso($this->getReference("perso_1"));
+        $manager->persist($dialog6Scene3);
+
+        /** Kevin Verdâtre */
+
+        $dialog7Scene3 = new Dialogs();
+        $dialog7Scene3 ->setText("You will discover soon enough who I am... Mr. Hiro KING!");
+        $this->addReference("dialog7Scene3", $dialog7Scene3 );
+        $dialog7Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                ->setState("Angry")
+                ->setPerso($this->getReference("perso_5"));
+        $manager->persist($dialog7Scene3);
+
+        /** Hiro */
+        $dialog8Scene3 = new Dialogs();
+        $dialog8Scene3 ->setText("(Wow! He’s almost as scary as the guy on the phone!)");
+        $this->addReference("dialog8Scene3", $dialog8Scene3 );
+        $dialog8Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                    ->setPerso($this->getReference("perso_1"));
+        $manager->persist($dialog8Scene3);
+
+        /** Kevin Verdâtre */
+        $dialog9Scene3 = new Dialogs();
+        $dialog9Scene3 ->setText("The graphic designers of the Marketing Department need more powerful computers…!");
+        $this->addReference("dialog9Scene3", $dialog9Scene3 );
+        $dialog9Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                ->setState("Neutral")
+                ->setPerso($this->getReference("perso_5"));
+        $manager->persist($dialog9Scene3);
+
+        $dialog10Scene3 = new Dialogs();
+        $dialog10Scene3 ->setText("We can’t create anything good with these DESPICABLY old machines.");
+        $this->addReference("dialog10Scene3", $dialog10Scene3 );
+        $dialog10Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                ->setState("Angry")
+                ->setPerso($this->getReference("perso_5"));
+        $manager->persist($dialog10Scene3);
+
+        $dialog11Scene3 = new Dialogs();
+        $dialog11Scene3 ->setText("We kept them for two years after all.");
+        $this->addReference("dialog11Scene3", $dialog11Scene3 );
+        $dialog11Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                ->setState("Neutral")
+                ->setPerso($this->getReference("perso_5"));
+        $manager->persist($dialog11Scene3);
+
+        $dialog12Scene3 = new Dialogs();
+        $dialog12Scene3 ->setText("To show the world how GREEN we are, we need our advertising service to be FLAWLESS.");
+        $this->addReference("dialog12Scene3", $dialog12Scene3);
+        $dialog12Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                ->setState("Angry")
+                ->setPerso($this->getReference("perso_5"));
+        $manager->persist($dialog12Scene3);
+
+        $dialog13Scene3 = new Dialogs();
+        $dialog13Scene3 ->setText("Don’t you agree, Mr. Hiro King?");
+        $this->addReference("dialog13Scene3", $dialog13Scene3);
+        $dialog13Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                ->setState("Happy")
+                ->setPerso($this->getReference("perso_5"));
+        $manager->persist($dialog13Scene3);
+
+        $dialog14Scene3 = new Dialogs();
+        $dialog14Scene3 ->setText("Fair enough. See you soon… Mr. Hiro King.");
+        $this->addReference("dialog14Scene3", $dialog14Scene3);
+        $dialog14Scene3 ->setStoryNode($this->getReference("storyNodeScene3"))
+                ->setState("Neutral")
+                ->setPerso($this->getReference("perso_5"));
+        $manager->persist($dialog14Scene3);
+
+        
         /*************** EndGame ***************/
 
         /** Hiro */
