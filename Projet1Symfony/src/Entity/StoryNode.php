@@ -7,17 +7,22 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 #[ORM\Entity(repositoryClass: StoryNodeRepository::class)]
-#[ApiResource]
+#[ApiResource(normalizationContext: ['groups' => ['post:read']], denormalizationContext: ['groups' => ['post:write']])]
+
 class StoryNode
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['user:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $title = null;
 
     /********************** Relations ***********/ 
@@ -25,24 +30,28 @@ class StoryNode
      * @var Collection<int, Storychoice>
      */
     #[ORM\OneToMany(targetEntity: Storychoice::class, mappedBy: 'storyNode')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $storyChoices;
 
     /**
      * @var Collection<int, Ending>
      */
     #[ORM\OneToMany(targetEntity: Ending::class, mappedBy: 'storyNode')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $endings;
 
     /**
      * @var Collection<int, Dialogs>
      */
     #[ORM\OneToMany(targetEntity: Dialogs::class, mappedBy: 'storyNode')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $dialogs;
 
     /**
      * @var Collection<int, AssetStory>
      */
     #[ORM\OneToMany(targetEntity: AssetStory::class, mappedBy: 'storyNode')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $assetsStories;
 
     public function __construct()

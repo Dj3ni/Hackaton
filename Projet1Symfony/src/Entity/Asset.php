@@ -8,26 +8,32 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: AssetRepository::class)]
-#[ApiResource]
+#[ApiResource(normalizationContext: ['groups' => ['post:read']], denormalizationContext: ['groups' => ['post:write']])]
 class Asset
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['user:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $type = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $filepath = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $choiceCondition = null;
 
    /********************** Relations ***********/ 
@@ -35,9 +41,11 @@ class Asset
      * @var Collection<int, AssetStory>
      */
     #[ORM\OneToMany(targetEntity: AssetStory::class, mappedBy: 'asset')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $stories;
 
     #[ORM\ManyToOne(inversedBy: 'assets')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?Character $perso = null;
     
 

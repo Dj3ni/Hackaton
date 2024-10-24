@@ -8,17 +8,20 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity(repositoryClass: EndingRepository::class)]
-#[ApiResource]
+#[ApiResource(normalizationContext: ['groups' => ['post:read']], denormalizationContext: ['groups' => ['post:write']])]
+
 class Ending
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['user:read'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $text = null;
     
 /********************** Relations ***********/ 
@@ -26,9 +29,11 @@ class Ending
      * @var Collection<int, Choice>
      */
     #[ORM\OneToMany(targetEntity: Choice::class, mappedBy: 'ending')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $choices;
 
     #[ORM\ManyToOne(inversedBy: 'endings')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?StoryNode $storyNode = null;
 
     public function __construct()
