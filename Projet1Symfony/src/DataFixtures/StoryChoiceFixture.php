@@ -14,13 +14,13 @@ class StoryChoiceFixture extends Fixture implements DependentFixtureInterface
     {
         $faker = Factory::create('fr_FR');
 
-        for ($i = 0; $i < 5; $i++) {    
-            $storyChoice = new StoryChoice();
-            $storyChoice->setChoice($this->getReference("choice_$i"))
-                        ->setStoryNode($this->getReference("storyNode_$i"));
-            $manager->persist($storyChoice);
+        // for ($i = 0; $i < 5; $i++) {    
+        //     $storyChoice = new StoryChoice();
+        //     $storyChoice->setChoice($this->getReference("choice_$i"))
+        //                 ->setStoryNode($this->getReference("storyNode_$i"));
+        //     $manager->persist($storyChoice);
             
-        }
+        // }
 
         $manager->flush();
     }

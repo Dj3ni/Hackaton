@@ -12,28 +12,27 @@ class EndingFixture extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-    
-        $faker = Factory::create('fr_FR');
+        // $faker = Factory::create('fr_FR');
 
-        for ($i = 0; $i < 5; $i++) {    
-            $ending = new Ending();
-            $ending->setText($faker->paragraph());
-            $this->addReference("ending_$i",$ending);
+        // for ($i = 1; $i < 5; $i++) {    
+        //     $ending = new Ending();
+        //     $ending->setText($faker->paragraph());
+        //     $this->addReference("ending_$i",$ending);
 
-            $manager->persist($ending);
-        }
-        $manager->flush();
+        //     $manager->persist($ending);
+        // }
+        // $manager->flush();
 
-        for ($i = 0; $i < 5; $i++) {
-            $storyNode = $this->getReference("storyNode_$i");
-            $ending = $this->getReference("ending_$i");
+        // for ($i = 1; $i < 5; $i++) {
+        //     $storyNode = $this->getReference("storyNode_$i");
+        //     $ending = $this->getReference("ending_$i");
 
-            $ending->setStoryNode($storyNode);
-            $manager->persist($ending);
-        }
+        //     $ending->setStoryNode($storyNode);
+        //     $manager->persist($ending);
+        // }
 
-        // Flush final après avoir mis à jour les relations
-        $manager->flush();
+        // // Flush final après avoir mis à jour les relations
+        // $manager->flush();
     }
 
     public function getDependencies()

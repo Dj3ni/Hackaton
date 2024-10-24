@@ -24,7 +24,7 @@ class StoryNode
     /**
      * @var Collection<int, Storychoice>
      */
-    #[ORM\OneToMany(targetEntity: Storychoice::class, mappedBy: 'storyNode')]
+    #[ORM\OneToMany(targetEntity: StoryChoice::class, mappedBy: 'storyNode')]
     private Collection $storyChoices;
 
     /**
@@ -71,14 +71,14 @@ class StoryNode
     }
 
     /**
-     * @return Collection<int, Storychoice>
+     * @return Collection<int, StoryChoice>
      */
     public function getStoryChoices(): Collection
     {
         return $this->storyChoices;
     }
 
-    public function addStoryChoice(Storychoice $storyChoice): static
+    public function addStoryChoice(StoryChoice $storyChoice): static
     {
         if (!$this->storyChoices->contains($storyChoice)) {
             $this->storyChoices->add($storyChoice);
@@ -88,7 +88,7 @@ class StoryNode
         return $this;
     }
 
-    public function removeStoryChoice(Storychoice $storyChoice): static
+    public function removeStoryChoice(StoryChoice $storyChoice): static
     {
         if ($this->storyChoices->removeElement($storyChoice)) {
             // set the owning side to null (unless already changed)

@@ -13,21 +13,20 @@ class UserChoiceFixture extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-    
-        $faker = Factory::create('fr_FR');
+        // $faker = Factory::create('fr_FR');
 
-        for ($i = 0; $i < 5; $i++) {
-            $userChoice = new UserChoice();
-            $user = $this->getReference("user_$i");
-            $choice = $this->getReference("choice_$i");
+        // for ($i = 0; $i < 5; $i++) {
+        //     $userChoice = new UserChoice();
+        //     $user = $this->getReference("user_$i");
+        //     $choice = $this->getReference("choice_$i");
             
-            $userChoice ->setTimestamp(new DateTime())
-                        ->setChoice($choice)
-                        ->setUser($user);
-            $manager->persist($userChoice);
-        }
+        //     $userChoice ->setTimestamp(new DateTime())
+        //                 ->setChoice($choice)
+        //                 ->setUser($user);
+        //     $manager->persist($userChoice);
+        // }
 
-        $manager->flush();
+        // $manager->flush();
 
     }
 
