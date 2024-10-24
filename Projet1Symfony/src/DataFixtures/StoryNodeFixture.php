@@ -13,16 +13,23 @@ class StoryNodeFixture extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $faker = Factory::create('fr_FR');
+        // $faker = Factory::create('fr_FR');
 
-        for ($i = 0; $i < 5; $i++) {    
-            $storyNode = new StoryNode();
-            $storyNode  ->setTitle($faker->paragraph);
-            $this->addReference("storyNode_$i",$storyNode);
+        // for ($i = 0; $i < 5; $i++) {    
+        //     $storyNode = new StoryNode();
+        //     $storyNode  ->setTitle($faker->paragraph);
+        //     $this->addReference("storyNode_$i",$storyNode);
             
-            $manager->persist($storyNode);
+        //     $manager->persist($storyNode);
             
-        }
+        // }
+
+        $storyNodeStart = new StoryNode();
+        $storyNodeStart->setTitle("StartGame in CEO office");
+        $this->addReference("storyNodeStart",$storyNodeStart);
+        $manager->persist($storyNodeStart);
+
+
         $manager->flush();
 
     }

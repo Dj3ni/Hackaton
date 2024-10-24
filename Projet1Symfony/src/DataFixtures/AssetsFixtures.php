@@ -21,7 +21,7 @@ class AssetsFixtures extends Fixture implements DependentFixtureInterface
         
         $manager->flush();
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 1; $i < 5; $i++) {
             $asset = $this->getReference("asset_$i");
             $character = $this->getReference("perso_$i");
 
@@ -31,6 +31,16 @@ class AssetsFixtures extends Fixture implements DependentFixtureInterface
             // Re-persister l'asset avec la relation
             $manager->persist($asset);
         }
+
+    //     $assetPersoUser = new Asset();
+    //     $assetPersoUser  ->setType("avatar")
+    //             ->setChoiceCondition("neutral")
+    //             ->setFilePath("/avatars/userneutral");
+    //     $this->addReference("assetPersoUserNeutral", $assetPersoUser);
+    //     $manager->persist($assetPersoUser);
+    //     $manager->flush();
+
+
 
         // Flush final après avoir mis à jour les relations
         $manager->flush();
@@ -43,3 +53,4 @@ class AssetsFixtures extends Fixture implements DependentFixtureInterface
         ]);
     }
 }
+
