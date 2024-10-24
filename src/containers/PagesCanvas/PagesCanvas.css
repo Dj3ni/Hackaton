@@ -16,7 +16,7 @@
 	align-items: start;
 	min-width: 1280px;
 
-	background-image: url("/office1.1.jpg");
+	background-image: url("/office-GIF.gif");
 	background-size: cover;
 	position: relative;
 }
@@ -62,4 +62,16 @@
 	right: 100px;
 	top: 160px;
 	height: 60%;
+}
+
+.door {
+	position: absolute;
+	left: 500px;
+	top: 300px;
+	height: 60%;
+	color: black;
+	height: fit-content;
+	background-color: rgba(245, 222, 179, 0.678);
+	font-family: Pixel;
+	display: none;
 }

@@ -12,6 +12,9 @@ const PageCanvas = () => {
 
 		setIndex((prevIndex) => (prevIndex = prevIndex + 1));
 
+		if (index === 2 && currentChara.name === "Hiro King") {
+		}
+
 		if (index === 8 && currentChara.name === "Hiro King") {
 			setIndex(0);
 			setCurrentChara(agatha);
@@ -36,6 +39,7 @@ const PageCanvas = () => {
 	};
 	return (
 		<main className="main" onClick={() => displayDialogue()}>
+			<p className="door">Knock Knock</p>
 			<img className="sprite" src={currentChara.url} alt="" />
 			<section className="content"></section>
 			<p className="CharaName">{currentChara.name}</p>
