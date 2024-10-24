@@ -29,6 +29,16 @@ class StoryNodeFixture extends Fixture
         $this->addReference("storyNodeStart",$storyNodeStart);
         $manager->persist($storyNodeStart);
 
+        $storyNodeScene2 = new StoryNode();
+        $storyNodeScene2->setTitle("Scene 2 in CEO office");
+        $this->addReference("storyNodeScene2",$storyNodeScene2);
+        $manager->persist($storyNodeScene2);
+
+        $storyNodeScene3 = new StoryNode();
+        $storyNodeScene3->setTitle("Scene 3 in CEO office");
+        $this->addReference("storyNodeScene3",$storyNodeScene3);
+        $manager->persist($storyNodeScene3);
+
         $storyNodeEnd = new StoryNode();
         $storyNodeEnd->setTitle("EndGame in CEO office: time to see the world you deserve... ");
         $this->addReference("storyNodeEnd",$storyNodeEnd);
@@ -38,7 +48,6 @@ class StoryNodeFixture extends Fixture
         $storyConclusion->setTitle("Now, let's see the results");
         $this->addReference("storyConclusion",$storyConclusion);
         $manager->persist($storyConclusion);
-
 
         $manager->flush();
 

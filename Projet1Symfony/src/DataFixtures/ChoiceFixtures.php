@@ -60,18 +60,17 @@ class ChoiceFixtures extends Fixture implements DependentFixtureInterface
 
         /******* Scene 3 *****************/ 
         $scene3Choice1 = new Choice();
-        $scene3Choice1->setText("We cannot ignore the emissions of IT CORP. Let\'s fund this project!");
+        $scene3Choice1->setText("Of course! The entire world must know how GREEN we have become!");
         $this->addReference("choice_5",$scene3Choice1);
             
         $manager->persist($scene3Choice1);
 
         $scene3Choice2 = new Choice();
-        $scene3Choice2->setText("IT activities have nothing to do with CO₂ emissions.  I\'d rather restrain air travel for the executives.");
+        $scene3Choice2->setText("Just change what’s necessary. I don’t want to waste it.");
         $this->addReference("choice_6",$scene3Choice2);
         $manager->persist($scene3Choice2);
 
         /***** Conclusion */
-        
         $conclusionChoice1 = new Choice();
         $conclusionChoice1->setText("Kevin Verdâtre.");
         $this->addReference("choice_7",$conclusionChoice1);
