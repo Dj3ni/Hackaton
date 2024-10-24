@@ -30,7 +30,7 @@ class StoryNodeFixture extends Fixture
         $manager->persist($storyNodeStart);
 
         $storyNodeEnd = new StoryNode();
-        $storyNodeEnd->setTitle("EndGame: time to see the world you deserve... ");
+        $storyNodeEnd->setTitle("EndGame in CEO office: time to see the world you deserve... ");
         $this->addReference("storyNodeEnd",$storyNodeEnd);
         $manager->persist($storyNodeEnd);
 
