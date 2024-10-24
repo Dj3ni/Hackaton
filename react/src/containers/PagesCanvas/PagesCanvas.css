@@ -19,6 +19,7 @@
 	background-image: url("/office-GIF.gif");
 	background-size: cover;
 	position: relative;
+	align-items: center;
 }
 
 .content {
@@ -66,11 +67,22 @@
 
 .door {
 	position: absolute;
-	left: 500px;
-	top: 300px;
-	height: 60%;
+	left: 600px;
+	top: 400px;
+	padding: 1ch;
 	color: black;
 	height: fit-content;
 	background-color: rgba(245, 222, 179, 0.678);
 	font-family: Pixel;
+	font-size: larger;
+	font-weight: bold;
+}
+
+.choices {
+	margin-top: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
 }
