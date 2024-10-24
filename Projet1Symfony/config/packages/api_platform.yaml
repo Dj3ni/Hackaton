@@ -17,3 +17,8 @@ api_platform:
         max_joins: 30
         fetch_partial: true
         force_eager: false
+
+
+    # formats:
+    # json: ['application/json']
+    # xml:  ['application/xml']

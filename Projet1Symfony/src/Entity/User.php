@@ -22,25 +22,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180)]
-    #[Groups(['user:read', 'user:write'])]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $email = null;
 
     /**
      * @var list<string> The user roles
      */
     #[ORM\Column]
-    #[Groups(['user:read', 'user:write'])]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private array $roles = [];
 
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
-    #[Groups(['user:read', 'user:write'])]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $password = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['user:read', 'user:write'])]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $pseudo = null;
 
     /********************** Relations ***********/ 
@@ -48,7 +48,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var Collection<int, UserChoice>
      */
     #[ORM\OneToMany(targetEntity: UserChoice::class, mappedBy: 'user')]
-    #[Groups(['user:read', 'user:write'])]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $choices;
 
     public function __construct()

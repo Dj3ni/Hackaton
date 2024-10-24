@@ -2,16 +2,25 @@
 
 namespace App\Entity;
 
-use App\Repository\AssetRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\AssetRepository;
 use ApiPlatform\Metadata\ApiResource;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: AssetRepository::class)]
-#[ApiResource(normalizationContext: ['groups' => ['post:read']], denormalizationContext: ['groups' => ['post:write']])]
+#[ApiResource(
+    operations: [
+        new Get(), // Autorise seulement GET (lecture)
+        new Post() // Autorise POST (création)
+    ],
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
 class Asset
 {
     #[ORM\Id]
