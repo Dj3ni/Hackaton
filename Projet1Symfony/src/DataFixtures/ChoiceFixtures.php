@@ -6,8 +6,9 @@ use Faker\Factory;
 use App\Entity\Choice;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class ChoiceFixtures extends Fixture
+class ChoiceFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
@@ -17,17 +18,26 @@ class ChoiceFixtures extends Fixture
         for ($i = 0; $i < 5; $i++) {
             $choice = new Choice();
             $choice->setText($faker->paragraph());
-                    // ->addDialog($this->getReference("dialog_$i"));
             $this->addReference("choice_$i",$choice);
             
             $manager->persist($choice);
         }
-
+        
         // One choice leads directly to ending
-        // $choice6 = new Choice();
-        // $choice6->setEnding($this->getReference("ending_1"));
-        // $manager->persist($choice6);
-
+        $choice6 = new Choice();
+        $choice6->setEnding($this->getReference("ending_1"))
+                ->setText($faker->paragraph());
+        $manager->persist($choice6);
+        
         $manager->flush();
+
     }
+
+    public function getDependencies()
+    {
+        return([
+            EndingFixture::class,
+        ]);
+    }
+
 }
