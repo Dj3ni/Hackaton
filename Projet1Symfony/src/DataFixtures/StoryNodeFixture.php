@@ -34,6 +34,11 @@ class StoryNodeFixture extends Fixture
         $this->addReference("storyNodeEnd",$storyNodeEnd);
         $manager->persist($storyNodeEnd);
 
+        $storyConclusion = new StoryNode();
+        $storyConclusion->setTitle("Now, let's see the results");
+        $this->addReference("storyConclusion",$storyConclusion);
+        $manager->persist($storyConclusion);
+
 
         $manager->flush();
 
