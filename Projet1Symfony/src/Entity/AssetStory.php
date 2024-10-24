@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\AssetStoryRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: AssetStoryRepository::class)]
+#[ApiResource]
 class AssetStory
 {
     #[ORM\Id]
