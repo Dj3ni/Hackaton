@@ -27,18 +27,6 @@ class AssetStory
     #[Groups(['user:read'])]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['post:read', 'post:write', 'user:read'])]
-    private ?string $type = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['post:read', 'post:write', 'user:read'])]
-    private ?string $path = null;
-
-    // #[ORM\Column(type: Types::TEXT)]
-    // #[Groups(['post:read', 'post:write', 'user:read'])]
-    // private ?string $description = null;
-
     /********************** Relations ***********/ 
 
     #[ORM\ManyToOne(inversedBy: 'assetsStories')]
@@ -54,41 +42,6 @@ class AssetStory
         return $this->id;
     }
 
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): static
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    // public function getPath(): ?string
-    // {
-    //     return $this->path;
-    // }
-
-    // public function setPath(?string $path): static
-    // {
-    //     $this->path = $path;
-
-    //     return $this;
-    // }
-
-    // public function getDescription(): ?string
-    // {
-    //     return $this->description;
-    // }
-
-    // public function setDescription(string $description): static
-    // {
-    //     $this->description = $description;
-
-    //     return $this;
-    // }
 
     public function getStoryNode(): ?StoryNode
     {

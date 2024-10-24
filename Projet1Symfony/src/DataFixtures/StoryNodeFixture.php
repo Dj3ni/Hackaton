@@ -29,6 +29,11 @@ class StoryNodeFixture extends Fixture
         $this->addReference("storyNodeStart",$storyNodeStart);
         $manager->persist($storyNodeStart);
 
+        $storyNodeEnd = new StoryNode();
+        $storyNodeEnd->setTitle("EndGame: time to see the world you deserve... ");
+        $this->addReference("storyNodeEnd",$storyNodeEnd);
+        $manager->persist($storyNodeEnd);
+
 
         $manager->flush();
 
