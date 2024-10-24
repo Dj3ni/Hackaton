@@ -58,6 +58,11 @@ class CharacterFixtures extends Fixture
         $this->addReference("perso_5", $perso5);
         $manager->persist($perso5);
 
+        $perso6 = new Character();
+        $perso6->setName("James Arnold King Jr");
+        $this->addReference("perso_6", $perso6);
+        $manager->persist($perso6);
+
         $manager->flush();
     }
 
