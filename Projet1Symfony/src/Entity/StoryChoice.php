@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\StoryChoiceRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: StoryChoiceRepository::class)]
+#[ApiResource]
 class StoryChoice
 {
     #[ORM\Id]
