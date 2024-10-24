@@ -27,9 +27,9 @@ class AssetStory
     #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $path = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    #[Groups(['post:read', 'post:write', 'user:read'])]
-    private ?string $description = null;
+    // #[ORM\Column(type: Types::TEXT)]
+    // #[Groups(['post:read', 'post:write', 'user:read'])]
+    // private ?string $description = null;
 
     /********************** Relations ***********/ 
 

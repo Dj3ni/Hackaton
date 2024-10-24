@@ -10,11 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-<<<<<<<< HEAD:Projet1Symfony/migrations/Version20241024113013.php
-final class Version20241024113013 extends AbstractMigration
-========
-final class Version20241023202327 extends AbstractMigration
->>>>>>>> develop:Projet1Symfony/migrations/Version20241023202327.php
+final class Version20241024114154 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -25,7 +21,7 @@ final class Version20241023202327 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE asset (id INT AUTO_INCREMENT NOT NULL, perso_id INT DEFAULT NULL, type VARCHAR(255) DEFAULT NULL, filepath VARCHAR(255) DEFAULT NULL, description LONGTEXT DEFAULT NULL, choice_condition LONGTEXT DEFAULT NULL, INDEX IDX_2AF5A5C1221E019 (perso_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE asset_story (id INT AUTO_INCREMENT NOT NULL, story_node_id INT DEFAULT NULL, asset_id INT DEFAULT NULL, type VARCHAR(255) DEFAULT NULL, INDEX IDX_7E0D2A7F15F10F55 (story_node_id), INDEX IDX_7E0D2A7F5DA1941 (asset_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE asset_story (id INT AUTO_INCREMENT NOT NULL, story_node_id INT DEFAULT NULL, asset_id INT DEFAULT NULL, type VARCHAR(255) DEFAULT NULL, path VARCHAR(255) DEFAULT NULL, INDEX IDX_7E0D2A7F15F10F55 (story_node_id), INDEX IDX_7E0D2A7F5DA1941 (asset_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE `character` (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE choice (id INT AUTO_INCREMENT NOT NULL, ending_id INT DEFAULT NULL, text VARCHAR(255) DEFAULT NULL, INDEX IDX_C1AB5A927C6D4E1C (ending_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE dialogs (id INT AUTO_INCREMENT NOT NULL, choice_id INT DEFAULT NULL, story_node_id INT DEFAULT NULL, perso_id INT DEFAULT NULL, text LONGTEXT DEFAULT NULL, state VARCHAR(255) DEFAULT NULL, INDEX IDX_B8F7AEA7998666D1 (choice_id), INDEX IDX_B8F7AEA715F10F55 (story_node_id), INDEX IDX_B8F7AEA71221E019 (perso_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
