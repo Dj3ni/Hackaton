@@ -2,24 +2,39 @@
 
 namespace App\Entity;
 
-use App\Repository\StoryChoiceRepository;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
+use App\Repository\StoryChoiceRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: StoryChoiceRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    operations: [
+        new Get(), // Autorise seulement GET (lecture)
+        new Post() // Autorise POST (création)
+    ],
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
+
 class StoryChoice
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['user:read'])]
     private ?int $id = null;
     
 /********************** Relations ***********/ 
     #[ORM\ManyToOne(inversedBy: 'storyChoices')]
+    #[ApiResource(normalizationContext: ['groups' => ['post:read']], denormalizationContext: ['groups' => ['post:write']])]
+
     private ?Choice $choice = null;
 
     #[ORM\ManyToOne(inversedBy: 'storyChoices')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?StoryNode $storyNode = null;
 
     public function getId(): ?int

@@ -2,22 +2,35 @@
 
 namespace App\Entity;
 
-use App\Repository\ChoiceRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ChoiceRepository;
 use ApiPlatform\Metadata\ApiResource;
+use Doctrine\Common\Collections\Collection;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: ChoiceRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    operations: [
+        new Get(), // Autorise seulement GET (lecture)
+        new Post() // Autorise POST (création)
+    ],
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
 class Choice
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['post:read','user:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $text = null;
 
 /********************** Relations ***********/ 
@@ -25,15 +38,18 @@ class Choice
      * @var Collection<int, UserChoice>
      */
     #[ORM\OneToMany(targetEntity: UserChoice::class, mappedBy: 'choice')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $userChoices;
 
     /**
      * @var Collection<int, StoryChoice>
      */
     #[ORM\OneToMany(targetEntity: StoryChoice::class, mappedBy: 'choice')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $storyChoices;
 
     #[ORM\ManyToOne(inversedBy: 'choices')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?Ending $ending = null;
 
     /**
