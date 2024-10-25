@@ -8,6 +8,7 @@ import {
 	sceneOne,
 	hiro1,
 } from "./dialogues/scene2/dialogue2";
+import BadEnd from "./components/BadEnd/BadEnd";
 
 function App() {
 	const [scene, setScene] = useState(0);
@@ -16,8 +17,6 @@ function App() {
 	const updateScene = (newScene: number) => {
 		setScene(newScene);
 	};
-	console.log(score);
-	console.log("scene", scene);
 
 	return (
 		<>
@@ -41,6 +40,7 @@ function App() {
 					onUpdateScore={setScore}
 				/>
 			) : null}
+			{score === 0 && scene === 2 ? <BadEnd /> : null}
 		</>
 	);
 }
