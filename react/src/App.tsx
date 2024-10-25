@@ -21,6 +21,7 @@ function App() {
 
 	const updateScene = (newScene: number) => {
 		setScene(newScene);
+		
 	};
 
 	const onUpdateGoodScore = (newScore: number) => {

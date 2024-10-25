@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url ="localhost/api/Dialogs"
+const url ="http://localhost/api/Dialogs"
 
 function fetchData (){
     axios.get(url).then(response =>{
@@ -8,6 +8,27 @@ function fetchData (){
     })
 }
 fetchData()
+
+function test(dialogs : string[], indexes : number[]) : void{
+    console.log("test");
+    try {
+        const res = axios.get(
+            'http://localhost:8000/api/dialogs'
+        ).then(response=>{
+            console.log(response.data.member[0].text);
+            indexes.forEach(i => dialogs.push(response.data.member[i].text));
+        });
+        
+        // const arrayOfPlaces = res.places;
+        // const listOfPlaces = arrayOfPlaces
+        // 	.map((place) => place["place name"])
+        // 	.join(", ");
+        // console.log(`La(les) villes correspondant à votre recheche est(sont) : ${listOfPlaces}`);
+    } catch (error) {
+        console.log("Oups, je n'ai pas trouvé");
+    }
+
+}
 
 export type Character = {
     name: string;
@@ -19,34 +40,38 @@ export type Character = {
     export const hiro: Character = {
     name: "Hiro King",
     dialogue: [
-
-        "A few days ago, I was only an intern here at IT CORP…",
-        "My father, the CEO of the company, disappeared after a money laundering scandal.",
-        "After that, the board decided to put me in charge. ",
-        "How am I supposed to know what to do??? I was only the coffee boy until now! ",
-        "Aaah!",
-        "(What should I do?)",
-        "<Inhales deeply.> ",
-        "(OK, let’s do this.) ",
-        "Come in! ",
-        "Green directives? ",
-        "But I don’t know anything about that…",
-        "Alright then, let’s see… ",
+        // response.data.member[0].text,
+        // response.data.member[1].text,
+        // response.data.member[2].text,
+        // response.data.member[3].text,
+        // response.data.member[4].text,
+        // response.data.member[5].text,
+        // response.data.member[6].text,
+        // response.data.member[7].text,
+        // response.data.member[13].text,
+        // response.data.member[16].text,
+        // response.data.member[25].text,
     ],
     url: "",
-    choices: ["How does it work? ", "OK, let’s do this!"],
+    choices: ["How does it work? ", "OK, let's do this!"],
     };
+
+    test(hiro.dialogue, [0,1,2,3,4,5,6,7,13,16,25])
 
     export const agatha: Character = {
     name: "Agatha Clarke",
     dialogue: [
-        " Mr. Hiro King?",
-        "I am Agatha Clarke, executive assistant at IT CORP…",
-        "The direction board mandated me to help your father, James A. King Jr, before he disappeared",
-        "I am here to help you now.",
-        "We need to talk about the Green directives at IT CORP, Mr Hiro.",
-        "I’m sorry to bother you so early. I know that you are still adjusting to your new position…",
-        "But the “Green” question has been ignored for far too long under the influence of your father. It’s time for you to change the way things work over here!",
+    //     response.data.member[8].text,
+    //     response.data.member[9].text,
+    //     response.data.member[10].text,
+    //     response.data.member[11].text,
+    //     response.data.member[12].text,
+    //     response.data.member[14].text,
+    //     response.data.member[15].text,
+    //     response.data.member[17].text,
+    //     response.data.member[18].text,
+    //     response.data.member[19].text,
+    //     response.data.member[20].text,
         "Oh, don’t sell yourself short, Mr Hiro!",
         "I’m certain you will make the right choices.",
         "That’s simple. ",
@@ -61,6 +86,7 @@ export type Character = {
     choices: [],
     };
 
+    test(agatha.dialogue, [8,9,10,11,12,14,15,17,18,19,20])
     export const tableauIntro = [
     {
         name: "Hiro King",
