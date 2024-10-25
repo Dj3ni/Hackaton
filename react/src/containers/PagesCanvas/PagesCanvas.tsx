@@ -96,9 +96,24 @@ const PageCanvas = ({
 			<section className="dialogue">
 				<DialogueBox text={getDialogue()} />
 			</section>
+			<audio controls loop>
+				<source src="/sound/MainMusic.wav" type="audio/wav"></source>
+			</audio>
 		</main>
 	);
 };
+
+
+
+// function MyButton(){
+// 	const [playSound] = useSound(src)
+	
+// 	return (
+// 	  <button onClick={() => playSound()}>
+// 		 Play Sound
+// 	  </button>
+// 	)
+//   }
 
 export default PageCanvas;
 

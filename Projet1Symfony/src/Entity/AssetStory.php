@@ -11,14 +11,8 @@ use App\Repository\AssetStoryRepository;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: AssetStoryRepository::class)]
-#[ApiResource(
-    operations: [
-        new Get(), // Autorise seulement GET (lecture)
-        new Post() // Autorise POST (création)
-    ],
-    normalizationContext: ['groups' => ['read']],
-    denormalizationContext: ['groups' => ['write']]
-)]
+#[ApiResource(normalizationContext: ['groups' => ['user:read']], denormalizationContext: ['groups' => ['user:write']])]
+
 class AssetStory
 {
     #[ORM\Id]
