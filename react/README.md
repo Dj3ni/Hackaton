@@ -3,6 +3,16 @@
 ## Comment utiliser Git en groupe?
 J'ai créé un repos utilisant git flow du coup merci d'utiliser ces commandes-ci:
 
+```
+git clone https://github.com/Dj3ni/Hackaton.git
+```
+
+Pour initialiser le git flow chez vous aussi
+```
+git flow init
+```
+Il faut changer la master en main et pour le reste
+
 Quand vous clonez le repos, vous allez être directement sur la branche "Develop". Merci de ne rien créer/modifier dessus. 
 Faites directement la commande suivante afin de créer votre branche de travail.
 
@@ -27,6 +37,8 @@ git commit -m "ce que vous avez fait depuis la dernière sauvegarde"
 
 Pensez à faire un commit avant de changer de fichier/dossier ex: si je fais les background, je commit avant de m'occuper du personnage. Cela permettra de limiter le risque de perte d'info et d'éviter de recommencer trop en cas d'erreur/ de problème
 
+Pour le premier push, il faut aller dans VsCode cliquer sur publish branch d'abord.
+
 Lorsque vous faites un git push, cela va créer une demande de pull request dans le github:
 ![image](https://github.com/user-attachments/assets/6075072a-4de6-4eb4-9811-56d4e525a8de)
 
@@ -39,3 +51,28 @@ Mettez un petit message avec e que vous avez fait etc,  puis sur créer pull req
 
 Si vous avez la moindre hésitaton, demandez-moi svp je viendrai vous aider avec plaisir. Je préfère venir vous aider 10 fois et que tout roule plutôt que de galérer le dernier jour pcq il y a plein de probs :)
 
+## Commandes pour utiliser la plateforme API
+
+Pour pouvoir utiliser la plateforme API, il faut faire ceci:
+1. Lancer Xampp (apache et sql): permet d'avoir le serveur Symfony et PhpMyAdmin
+2. une fois dans le dossier ProjetSymfony1:
+   ![image](https://github.com/user-attachments/assets/0c95af77-f2dc-4e70-9878-37a83cbd489c)
+
+   //1. Mettre à jour les paquets
+   ```
+    composer install
+   ```
+   //2. Lancer la migration de la DB
+   ```
+   .\migration.bat
+   ```
+   //3. Lancer le serveur local de symfony
+   ```
+   symfony serve:start
+   ```
+3. Une fois tout ça lancé, mettre l'adresse suivante dans  le navigateur
+
+  ```
+  localhost:8000/api
+  ```
+  
