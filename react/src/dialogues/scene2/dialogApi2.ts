@@ -1,21 +1,52 @@
 import { Character } from "../intro/dialogue";
+import axios from "axios";
 
+const url ="http://localhost/api/Dialogs"
+
+function dialog(dialogs : string[], indexes : number[]) : void{
+    
+    try {
+        const res = axios.get(
+            'http://localhost:8000/api/dialogs'
+        ).then(response=>{
+            indexes.forEach(i => dialogs.push(response.data.member[i].text));
+        });
+    } catch (error) {
+        console.log("Oups, je n'ai pas trouvé");
+    }
+}
+
+function choice(choices :string[], indexes : number[]):void{
+    console.log("test");
+    try {
+        const res = axios.get(
+            'http://localhost:8000/api/choices'
+        ).then(response=>{
+            console.log(response.data.member[0].text);
+            indexes.forEach(i => choices.push(response.data.member[i].text));
+        });
+    } catch (error) {
+        console.log("Oups, je n'ai pas trouvé");
+    }
+}
 
 export const hiro1: Character = {
     name: "Hiro King",
     dialogue: [
-        "Is this old phone still working? ",
-        "(I probably have to answer.) ",
-        "Y… yes? (Wow, this guy sounds creepy…)",
-        "Err…",
-        "(What was that?)",
-        "Aw. Err… Come in!",
-        "... Hello?",
-        
+        // "Is this old phone still working? ",
+        // "(I probably have to answer.) ",
+        // "Y… yes? (Wow, this guy sounds creepy…)",
+        // "Err…",
+        // "(What was that?)",
+        // "Aw. Err… Come in!",
+        // "... Hello?",
     ],
     url: "",
     choices: ["We cannot ignore the emissions of IT CORP. Let's fund this project!","IT activities have nothing to do with CO₂ emissions.  I'd rather restrain air travel for the executives"],
 };
+
+dialog(hiro1.dialogue, [28,29,31,33,38,39,40])
+choice(hiro1.choices, [2,3]);
 
 export const mysterious: Character = {
     name: "Mysterious Voice",
@@ -30,6 +61,8 @@ export const mysterious: Character = {
     url: "",
     choices: [],
 };
+
+dialog(mysterious.dialogue, [30,32,34,35,36,37])
 
 export const minako: Character = {
     name: "Minako Parsnip",
@@ -47,6 +80,7 @@ export const minako: Character = {
     url: "",
     choices: [],
 };
+dialog(minako.dialogue,[41,42,43,44,45,46,47,48,49,50])
 
 export const sceneOne = [
     {name: "Hiro King",dialogue: 0,img: "",},
