@@ -11,12 +11,13 @@ import {
 import BadEnd from "./components/BadEnd/BadEnd";
 
 import GoodEnd from "./components/GoodEnd/GoodEnd";
-import axios from "axios";
+import Credits from "./components/Credits/Credits";
 
 function App() {
-	const [scene, setScene] = useState(0);
-	const [goodScore, setGoodScore] = useState(0);
+	const [scene, setScene] = useState(2);
+	const [goodScore, setGoodScore] = useState(1);
 	const [badScore, setBadScore] = useState(0);
+	const [showCredits, setShowCredits] = useState(false);
 
 	const updateScene = (newScene: number) => {
 		setScene(newScene);
@@ -30,12 +31,20 @@ function App() {
 		setBadScore(newScore);
 	};
 
-	console.log("score", goodScore, badScore);
-	console.log("scene", scene);
+	const handleEnd = () => {
+		setShowCredits(true);
+	};
+	console.log(showCredits);
 
 	return (
-
 		<>
+			{showCredits ? (
+				<Credits
+					onUpdateScene={updateScene}
+					onUpdateGoodScore={onUpdateGoodScore}
+					onUpdateBadScore={onUpdateBadScore}
+				/>
+			) : null}
 			{scene === 0 ? (
 				<PageCanvas
 					onUpdateScene={updateScene}
@@ -60,11 +69,7 @@ function App() {
 			{badScore > goodScore && scene === 2 ? (
 				<BadEnd />
 			) : goodScore > badScore && scene === 2 ? (
-				<GoodEnd
-					onUpdateGoodScore={onUpdateGoodScore}
-					onUpdateBadScore={onUpdateBadScore}
-					onUpdateScene={updateScene}
-				/>
+				<GoodEnd onEnd={handleEnd} />
 			) : null}
 		</>
 	);
