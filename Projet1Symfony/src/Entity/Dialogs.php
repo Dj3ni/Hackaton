@@ -17,13 +17,6 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Dialogs
 {
 
-    
-        /**
-         * @MaxDepth(1)
-         */
-        private $Choices;
-    
-
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
