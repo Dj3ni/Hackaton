@@ -85,4 +85,16 @@
 	align-items: center;
 	justify-content: center;
 	gap: 1rem;
+	width: 100%;
+}
+
+.choiceBtn {
+	background-color: rgba(245, 222, 179, 0.822);
+	font-family: Pixel;
+	width: 40%;
+	color: black;
+}
+
+.choiceBtn:hover {
+	background-color: rgba(245, 222, 179, 0.678);
 }

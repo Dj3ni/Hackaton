@@ -2,27 +2,42 @@
 
 namespace App\Entity;
 
-use App\Repository\UserChoiceRepository;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
+use App\Repository\UserChoiceRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserChoiceRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    operations: [
+        new Get(), // Autorise seulement GET (lecture)
+        new Post() // Autorise POST (création)
+    ],
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
+
 class UserChoice
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['user:read'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?\DateTimeInterface $timestamp = null;
 
     #[ORM\ManyToOne(inversedBy: 'choices')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'userChoices')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?Choice $choice = null;
 
     public function getId(): ?int

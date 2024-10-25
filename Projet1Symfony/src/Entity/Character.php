@@ -2,23 +2,36 @@
 
 namespace App\Entity;
 
-use App\Repository\CharacterRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
+use App\Repository\CharacterRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CharacterRepository::class)]
 #[ORM\Table(name: '`character`')]
-#[ApiResource]
+#[ApiResource(
+    operations: [
+        new Get(), // Autorise seulement GET (lecture)
+        new Post() // Autorise POST (création)
+    ],
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
+
 class Character
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['user:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $name = null;
 
     /********************** Relations ***********/ 
@@ -27,12 +40,14 @@ class Character
      * @var Collection<int, Asset>
      */
     #[ORM\OneToMany(targetEntity: Asset::class, mappedBy: 'perso')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $assets;
 
     /**
      * @var Collection<int, Dialogs>
      */
     #[ORM\OneToMany(targetEntity: Dialogs::class, mappedBy: 'perso')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $dialogs;
 
     public function __construct()

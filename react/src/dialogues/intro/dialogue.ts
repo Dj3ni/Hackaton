@@ -5,7 +5,7 @@ export type Character = {
   choices: string[];
 };
 
-export const hero: Character = {
+export const hiro: Character = {
   name: "Hiro King",
   dialogue: [
     "A few days ago, I was only an intern here at IT CORP…",
