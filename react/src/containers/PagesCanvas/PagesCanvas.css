@@ -1,0 +1,100 @@
+@font-face {
+	font-family: Pixel;
+	src: url(/src/fonts/DePixelKlein.ttf);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	align-items: start;
+	min-width: 1280px;
+
+	background-image: url("/office-GIF.gif");
+	background-size: cover;
+	position: relative;
+	align-items: center;
+}
+
+.content {
+	flex: 1;
+}
+
+.dialogue {
+	border: solid 3px black;
+	padding: 2ch;
+	margin-bottom: 2ch;
+	text-align: left;
+	position: relative;
+	background-color: rgba(245, 222, 179, 0.678);
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	height: 200px;
+	overflow-y: scroll;
+	text-shadow: 1px 1px 2px rgba(245, 222, 179, 0.678);
+
+	font-family: Pixel;
+}
+
+.CharaName {
+	margin-left: 14ch;
+	margin-right: auto;
+	padding-left: 2ch;
+	padding-right: 2ch;
+	border: solid 3px black;
+	border-bottom: none;
+	color: black;
+	font-family: Pixel;
+	text-shadow: 1px 1px 2px rgba(245, 222, 179, 0.678);
+
+	background-color: rgba(245, 222, 179, 0.678);
+}
+
+.sprite {
+	position: absolute;
+	right: 100px;
+	top: 160px;
+	height: 60%;
+}
+
+.door {
+	position: absolute;
+	left: 600px;
+	top: 400px;
+	padding: 1ch;
+	color: black;
+	height: fit-content;
+	background-color: rgba(245, 222, 179, 0.678);
+	font-family: Pixel;
+	font-size: larger;
+	font-weight: bold;
+}
+
+.choices {
+	margin-top: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	width: 100%;
+}
+
+.choiceBtn {
+	background-color: rgba(245, 222, 179, 0.822);
+	font-family: Pixel;
+	width: 40%;
+	color: black;
+}
+
+.choiceBtn:hover {
+	background-color: rgba(245, 222, 179, 0.678);
+}

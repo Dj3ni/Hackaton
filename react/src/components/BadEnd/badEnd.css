@@ -1,0 +1,31 @@
+@font-face {
+	font-family: Pixel;
+	src: url(/src/fonts/DePixelKlein.ttf);
+}
+.badEnd {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	align-items: start;
+	min-width: 1280px;
+
+	background-image: url("/burning-city-GIF.gif");
+	background-size: cover;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	gap: 3ch;
+}
+
+.btn {
+	font-size: 2.5ch;
+	background-color: rgb(34, 185, 34);
+	font-family: Pixel;
+}
+
+.text {
+	font-size: 2.5ch;
+	font-family: Pixel;
+	background-color: black;
+	padding: 1ch;
+}

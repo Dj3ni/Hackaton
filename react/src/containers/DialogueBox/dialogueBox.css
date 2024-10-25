@@ -1,0 +1,11 @@
+.downArrow {
+	width: 2ch;
+	height: 2ch;
+	position: absolute;
+	bottom: 2ch;
+	right: 2ch;
+}
+
+.dialogueBox {
+	font-size: 2.5ch;
+}
