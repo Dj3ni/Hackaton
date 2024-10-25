@@ -21,6 +21,17 @@ function App() {
 		setScene(newScene);
 	};
 
+	const onUpdateGoodScore = (newScore: number) => {
+		setGoodScore(newScore);
+	};
+
+	const onUpdateBadScore = (newScore: number) => {
+		setBadScore(newScore);
+	};
+
+	console.log("score", goodScore, badScore);
+	console.log("scene", scene);
+
 	return (
 		<>
 			{scene === 0 ? (
@@ -40,11 +51,19 @@ function App() {
 					scenArray={sceneOne}
 					mysterious={mysterious}
 					onUpdateScene={updateScene}
-					onUpdateGoodScore={setGoodScore}
-					onUpdateBadScore={setBadScore}
+					onUpdateGoodScore={onUpdateGoodScore}
+					onUpdateBadScore={onUpdateBadScore}
 				/>
 			) : null}
-			{badScore > goodScore && scene === 2 ? <BadEnd /> : <GoodEnd />}
+			{badScore > goodScore && scene === 2 ? (
+				<BadEnd />
+			) : goodScore > badScore && scene === 2 ? (
+				<GoodEnd
+					onUpdateGoodScore={onUpdateGoodScore}
+					onUpdateBadScore={onUpdateBadScore}
+					onUpdateScene={updateScene}
+				/>
+			) : null}
 		</>
 	);
 }
