@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./credits.css";
 
 const Credits = ({
@@ -9,7 +10,7 @@ const Credits = ({
 	onUpdateBadScore: (newScore: number) => void;
 	onUpdateScene: (newScene: number) => void;
 }) => {
-	let creditsIndex = 0;
+	const [creditsIndex, setCreditsIndex] = useState(0);
 	const creditsArray = ["/Credits.png", "/Credits2.png"];
 
 	const resetGame = () => {
@@ -23,7 +24,7 @@ const Credits = ({
 			<section
 				onClick={() => {
 					if (creditsIndex < creditsArray.length - 1) {
-						creditsIndex++;
+						setCreditsIndex(creditsIndex + 1);
 					}
 				}}
 			>
