@@ -56,8 +56,6 @@ const PageCanvas = ({
 		progress === 19 &&
 		scenArray[progress].name === "Minako Parsnip";
 
-	console.log(progress);
-
 	return (
 		<main
 			className="main"

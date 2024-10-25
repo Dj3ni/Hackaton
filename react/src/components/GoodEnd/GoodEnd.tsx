@@ -1,17 +1,17 @@
 import "./GoodEnd.css";
-const GoodEnd = () => {
-	// const resetGame = () => {
-	// 	window.location.reload();
-	// };
+const GoodEnd = ({ onEnd }: { onEnd: () => void }) => {
 	return (
 		<main className="goodEnd">
-			<p className="text">
-				Thanks to your decisions, you have saved the world !
+			<p className="textgd">
+				Thanks to your decisions, you have saved the world!
 			</p>
-			<audio controls loop>
+
+			<button onClick={onEnd} className="btngd">
+				View Credits
+			</button>
+			<audio controls loop className="audio">
 				<source src="/sound/GoodEnding.mp3" type="audio/mp3"></source>
 			</audio>
-			<button className="btn">Quitter le jeu</button>
 		</main>
 	);
 };
