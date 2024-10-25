@@ -16,6 +16,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 class Dialogs
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -31,16 +32,27 @@ class Dialogs
     private ?string $state = null;
     
 /********************** Relations ***********/ 
-    #[ORM\ManyToOne(inversedBy: 'dialogs')]
-    #[Groups(['post:read', 'post:write', 'user:read'])]
-    private ?Choice $choice = null;
+
+        /**
+         * @MaxDepth(1)
+         */
+        private $Choice;
+        private $StoryNode;
+        private $Perso;
 
     #[ORM\ManyToOne(inversedBy: 'dialogs')]
-    #[Groups(['post:read', 'post:write', 'user:read'])]
+    #[Groups(['post:read'])]
+    private ?Choice $choice = null;
+ 
+
+    
+
+    #[ORM\ManyToOne(inversedBy: 'dialogs')]
+    #[Groups(['post:read'])]
     private ?StoryNode $storyNode = null;
 
     #[ORM\ManyToOne(inversedBy: 'dialogs')]
-    #[Groups(['post:read', 'post:write', 'user:read'])]
+    #[Groups(['post:read'])]
     private ?Character $perso = null;
 
     public function getId(): ?int

@@ -14,7 +14,7 @@ api_platform:
             partial_parameter_name: 'partial'  # Nom du paramètre pour le chargement partiel
     eager_loading:
         enabled: true
-        max_joins: 30
+        max_joins: 200
         fetch_partial: true
         force_eager: false
 
