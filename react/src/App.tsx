@@ -13,11 +13,13 @@ import BadEnd from "./components/BadEnd/BadEnd";
 
 import GoodEnd from "./components/GoodEnd/GoodEnd";
 import Credits from "./components/Credits/Credits";
+import Start from "./components/Start/Start";
 
 function App() {
-	const [scene, setScene] = useState(2);
+	const [start, setStart] = useState(false);
+	const [scene, setScene] = useState(0);
 	const [goodScore, setGoodScore] = useState(0);
-	const [badScore, setBadScore] = useState(1);
+	const [badScore, setBadScore] = useState(0);
 	const [showCredits, setShowCredits] = useState(false);
 
 	const updateScene = (newScene: number) => {
@@ -35,18 +37,15 @@ function App() {
 	const handleEnd = () => {
 		setShowCredits(true);
 	};
-	console.log(showCredits);
+	const handleStart = () => {
+		setStart(true);
+	};
 
 	return (
 		<>
-			{showCredits ? (
-				<Credits
-					onUpdateScene={updateScene}
-					onUpdateGoodScore={onUpdateGoodScore}
-					onUpdateBadScore={onUpdateBadScore}
-				/>
-			) : null}
-			{scene === 0 ? (
+			{" "}
+			{!start ? <Start onStart={handleStart} /> : null}
+			{scene === 0 && start ? (
 				<PageCanvas
 					onUpdateScene={updateScene}
 					hiro={hiro}
@@ -55,13 +54,20 @@ function App() {
 					scenArray={tableauIntroApi}
 				/>
 			) : null}
-			{scene === 1 ? (
+			{scene === 1 && start ? (
 				<PageCanvas
 					hiro={hiro1}
 					pnj={minako}
 					currentScene={scene}
 					scenArray={sceneOne}
 					mysterious={mysterious}
+					onUpdateScene={updateScene}
+					onUpdateGoodScore={onUpdateGoodScore}
+					onUpdateBadScore={onUpdateBadScore}
+				/>
+			) : null}
+			{showCredits ? (
+				<Credits
 					onUpdateScene={updateScene}
 					onUpdateGoodScore={onUpdateGoodScore}
 					onUpdateBadScore={onUpdateBadScore}

@@ -1,0 +1,25 @@
+.startSection {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+
+	align-items: start;
+	min-width: 1280px;
+	background-image: url("/MenuGIF1.gif");
+	background-size: cover;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+}
+
+.startButton {
+	margin-top: 600px;
+	margin-left: 60px;
+	width: 20%;
+	height: 10%;
+}
+
+.startButton:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
