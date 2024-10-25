@@ -18,7 +18,7 @@ export const hero: Character = {
         
     ],
     url: "",
-    choices: ["We cannot ignore the emissions of IT CORP. Let's fund this project!","IT activities have nothing to do with CO₂ emissions.  I'd rather restrain air travel for the executives"],
+    choices: ["We cannot ignore the emissions of IT CORP. Let's fund this project!","IT activities have nothing to do with CO₂ emissions. I'd rather restrain air travel for the executives"],
 };
 
 export const mysterious: Character = {
@@ -44,7 +44,7 @@ export const minako: Character = {
         "I am Minako Parsnip, from the Research Department.",
         "I... I have a request.",
         "Environmental activists complain on FrameBook about our company.",
-        " They ask us to offset the carbon footprints of our numerical activities. They want us to fund a reforestation project in Niger. What should we do?",
+        "They ask us to offset the carbon footprints of our numerical activities. They want us to fund a reforestation project in Niger. What should we do?",
         "Thank you for your time, sir!",
         "I will pass on your directives!"
     ],
