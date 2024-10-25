@@ -13,6 +13,8 @@ import BadEnd from "./components/BadEnd/BadEnd";
 
 import GoodEnd from "./components/GoodEnd/GoodEnd";
 import Credits from "./components/Credits/Credits";
+import axios from "axios";
+
 
 function App() {
 	const [scene, setScene] = useState(0);
@@ -36,6 +38,28 @@ function App() {
 		setShowCredits(true);
 	};
 	console.log(showCredits);
+
+	// function test(dialogs : string[], indexes : number[]) : void{
+	// 	console.log("test");
+	// 	try {
+	// 		const res = axios.get(
+	// 			'http://localhost:8000/api/dialogs'
+	// 		).then(response=>{
+	// 			console.log(response.data);
+	// 			console.log(response.data.member[0].text);
+	// 			indexes.forEach(i => dialogs.push(response.data.member[i].text));
+	// 		});
+	// 	} catch (error) {
+	// 		console.log("Oups, je n'ai pas trouvé");
+	// 	}
+	// }
+	function fetchData (){
+		axios.get('http://localhost:8000/api/dialogs').then(response =>{
+			console.log("hey");
+			console.log(response.data);
+		})
+	}
+	fetchData()
 
 	return (
 		<>

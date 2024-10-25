@@ -2,12 +2,12 @@ import axios from "axios";
 
 const url ="http://localhost/api/Dialogs"
 
-function fetchData (){
-    axios.get(url).then(response =>{
-        console.log("hey",response);
-    })
-}
-fetchData()
+// function fetchData (){
+//     axios.get(url).then(response =>{
+//         console.log("hey",response);
+//     })
+// }
+// fetchData()
 
 function test(dialogs : string[], indexes : number[]) : void{
     console.log("test");
@@ -21,7 +21,20 @@ function test(dialogs : string[], indexes : number[]) : void{
     } catch (error) {
         console.log("Oups, je n'ai pas trouvé");
     }
+}
 
+function choice(choices :string[], indexes : number[]):void{
+    console.log("test");
+    try {
+        const res = axios.get(
+            'http://localhost:8000/api/choices'
+        ).then(response=>{
+            console.log(response.data.member[0].text);
+            indexes.forEach(i => choices.push(response.data.member[i].text));
+        });
+    } catch (error) {
+        console.log("Oups, je n'ai pas trouvé");
+    }
 }
 
 export type Character = {
@@ -47,10 +60,13 @@ export type Character = {
         // response.data.member[25].text,
     ],
     url: "",
-    choices: ["How does it work? ", "OK, let's do this!"],
+    choices: [
+        // "How does it work? ", "OK, let's do this!"
+    ],
     };
 
-    test(hiro.dialogue, [0,1,2,3,4,5,6,7,13,16,25])
+    test(hiro.dialogue, [0,1,2,3,4,5,6,7,13,16,25]);
+    choice(hiro.choices, [0,1]);
 
     export const agatha: Character = {
     name: "Agatha Clarke",
@@ -65,22 +81,13 @@ export type Character = {
     //     response.data.member[17].text,
     //     response.data.member[18].text,
     //     response.data.member[19].text,
-    //     response.data.member[20].text,
-        "Oh, don’t sell yourself short, Mr Hiro!",
-        "I’m certain you will make the right choices.",
-        "That’s simple. ",
-        "A lot of people are concerned here about the future of our planet. ",
-        "Listen to them and make the right decision.",
-        "We want to work together on a better world!",
-        "IT CORP has a lot of influence. Your choices might have consequences.",
-        "My advice is to think carefully before you act.",
-        "Thank you, Mr Hiro. I can already see what a great president you will become! ",
+    //     response.data.member[20].text, //until 26
     ],
     url: "/assistant_happy.png",
     choices: [],
     };
 
-    test(agatha.dialogue, [8,9,10,11,12,14,15,17,18,19,20])
+    test(agatha.dialogue, [8,9,10,11,12,14,15,17,18,19,20,21,22,23,24,25,26])
     export const tableauIntroApi = [
     {
         name: "Hiro King",
