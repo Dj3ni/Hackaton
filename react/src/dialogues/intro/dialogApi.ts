@@ -10,12 +10,11 @@ const url ="http://localhost/api/Dialogs"
 // fetchData()
 
 function test(dialogs : string[], indexes : number[]) : void{
-    console.log("test");
+    
     try {
         const res = axios.get(
             'http://localhost:8000/api/dialogs'
         ).then(response=>{
-            console.log(response.data.member[0].text);
             indexes.forEach(i => dialogs.push(response.data.member[i].text));
         });
     } catch (error) {

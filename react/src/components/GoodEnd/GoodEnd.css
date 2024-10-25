@@ -29,3 +29,9 @@
 	background-color: rgba(245, 222, 179, 0.678);
 	padding: 1ch;
 }
+
+.audio {
+	position: absolute;
+	bottom: 2ch;
+	left: 2ch;
+}
