@@ -18,12 +18,6 @@ function test(dialogs : string[], indexes : number[]) : void{
             console.log(response.data.member[0].text);
             indexes.forEach(i => dialogs.push(response.data.member[i].text));
         });
-        
-        // const arrayOfPlaces = res.places;
-        // const listOfPlaces = arrayOfPlaces
-        // 	.map((place) => place["place name"])
-        // 	.join(", ");
-        // console.log(`La(les) villes correspondant à votre recheche est(sont) : ${listOfPlaces}`);
     } catch (error) {
         console.log("Oups, je n'ai pas trouvé");
     }
@@ -87,7 +81,7 @@ export type Character = {
     };
 
     test(agatha.dialogue, [8,9,10,11,12,14,15,17,18,19,20])
-    export const tableauIntro = [
+    export const tableauIntroApi = [
     {
         name: "Hiro King",
         dialogue: 0,

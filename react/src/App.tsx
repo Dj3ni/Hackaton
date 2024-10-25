@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import PageCanvas from "./containers/PagesCanvas/PagesCanvas";
 import { agatha, hiro, tableauIntro } from "./dialogues/intro/dialogue";
+import { tableauIntroApi } from "./dialogues/intro/dialogApi";
 import {
 	minako,
 	mysterious,
@@ -14,14 +15,13 @@ import GoodEnd from "./components/GoodEnd/GoodEnd";
 import Credits from "./components/Credits/Credits";
 
 function App() {
-	const [scene, setScene] = useState(2);
-	const [goodScore, setGoodScore] = useState(1);
+	const [scene, setScene] = useState(0);
+	const [goodScore, setGoodScore] = useState(0);
 	const [badScore, setBadScore] = useState(0);
 	const [showCredits, setShowCredits] = useState(false);
 
 	const updateScene = (newScene: number) => {
 		setScene(newScene);
-		
 	};
 
 	const onUpdateGoodScore = (newScore: number) => {
@@ -52,7 +52,7 @@ function App() {
 					hiro={hiro}
 					pnj={agatha}
 					currentScene={scene}
-					scenArray={tableauIntro}
+					scenArray={tableauIntroApi}
 				/>
 			) : null}
 			{scene === 1 ? (
