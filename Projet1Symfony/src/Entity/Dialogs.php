@@ -11,14 +11,7 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Repository\DialogsRepository;
 use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity(repositoryClass: DialogsRepository::class)]
-#[ApiResource(
-    operations: [
-        new Get(), // Autorise seulement GET (lecture)
-        new Post() // Autorise POST (création)
-    ],
-    normalizationContext: ['groups' => ['read']],
-    denormalizationContext: ['groups' => ['write']]
-)]
+#[ApiResource(normalizationContext: ['groups' => ['user:read']], denormalizationContext: ['groups' => ['user:write']])]
 
 
 class Dialogs

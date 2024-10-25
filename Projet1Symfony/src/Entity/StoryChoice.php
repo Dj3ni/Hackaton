@@ -10,14 +10,8 @@ use App\Repository\StoryChoiceRepository;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: StoryChoiceRepository::class)]
-#[ApiResource(
-    operations: [
-        new Get(), // Autorise seulement GET (lecture)
-        new Post() // Autorise POST (création)
-    ],
-    normalizationContext: ['groups' => ['read']],
-    denormalizationContext: ['groups' => ['write']]
-)]
+#[ApiResource(normalizationContext: ['groups' => ['user:read']], denormalizationContext: ['groups' => ['user:write']])]
+
 
 class StoryChoice
 {
