@@ -1,0 +1,30 @@
+@font-face {
+	font-family: Pixel;
+	src: url(/src/fonts/DePixelKlein.ttf);
+}
+.goodEnd {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	align-items: start;
+	min-width: 1280px;
+	background-image: url("/paradise.jpg");
+	background-size: cover;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	gap: 3ch;
+}
+
+.btn {
+	font-size: 2.5ch;
+	background-color: rgba(245, 222, 179, 0.87);
+	font-family: Pixel;
+}
+
+.text {
+	font-size: 2.5ch;
+	font-family: Pixel;
+	background-color: rgba(245, 222, 179, 0.678);
+	padding: 1ch;
+}
