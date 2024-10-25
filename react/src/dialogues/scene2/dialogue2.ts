@@ -18,7 +18,7 @@ export const hero: Character = {
         
     ],
     url: "",
-    choices: [],
+    choices: ["We cannot ignore the emissions of IT CORP. Let's fund this project!","IT activities have nothing to do with CO₂ emissions.  I'd rather restrain air travel for the executives"],
 };
 
 export const mysterious: Character = {
@@ -32,7 +32,7 @@ export const mysterious: Character = {
         "Very carefully.",
     ],
     url: "",
-    choices: ["We cannot ignore the emissions of IT CORP. Let's fund this project!","IT activities have nothing to do with CO₂ emissions.  I'd rather restrain air travel for the executives"],
+    choices: [],
 };
 
 export const minako: Character = {
