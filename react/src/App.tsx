@@ -9,10 +9,12 @@ import {
 	hiro1,
 } from "./dialogues/scene2/dialogue2";
 import BadEnd from "./components/BadEnd/BadEnd";
+import GoodeEnd from "./components/GoodEnd/GoodEnd";
 
 function App() {
 	const [scene, setScene] = useState(0);
-	const [score, setScore] = useState(0);
+	const [goodScore, setGoodScore] = useState(0);
+	const [badScore, setBadScore] = useState(0);
 
 	const updateScene = (newScene: number) => {
 		setScene(newScene);
@@ -37,10 +39,11 @@ function App() {
 					scenArray={sceneOne}
 					mysterious={mysterious}
 					onUpdateScene={updateScene}
-					onUpdateScore={setScore}
+					onUpdateGoodScore={setGoodScore}
+					onUpdateBadScore={setBadScore}
 				/>
 			) : null}
-			{score === 0 && scene === 2 ? <BadEnd /> : null}
+			{badScore > goodScore && scene === 2 ? <BadEnd /> : <GoodeEnd />}
 		</>
 	);
 }

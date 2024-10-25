@@ -10,7 +10,8 @@ const PageCanvas = ({
 	scenArray,
 	currentScene,
 	onUpdateScene,
-	onUpdateScore,
+	onUpdateGoodScore,
+	onUpdateBadScore,
 }: {
 	hiro: Character;
 	pnj: Character;
@@ -18,7 +19,8 @@ const PageCanvas = ({
 	currentScene: number;
 	scenArray: { name: string; img: string; dialogue: number }[];
 	onUpdateScene: (newScene: number) => void;
-	onUpdateScore?: (newScore: number) => void;
+	onUpdateGoodScore?: (newScore: number) => void;
+	onUpdateBadScore?: (newScore: number) => void;
 }) => {
 	const [progress, setProgress] = useState(0);
 
@@ -85,7 +87,8 @@ const PageCanvas = ({
 			{answerSceneOne ? (
 				<Choices
 					sceneChoices={hiro.choices}
-					onUpdateScore={onUpdateScore}
+					onUpdateGoodScore={onUpdateGoodScore}
+					onUpdateBadScore={onUpdateBadScore}
 					onUpdateState={updateProgress}
 				/>
 			) : null}
@@ -103,11 +106,9 @@ const PageCanvas = ({
 	);
 };
 
-
-
 // function MyButton(){
 // 	const [playSound] = useSound(src)
-	
+
 // 	return (
 // 	  <button onClick={() => playSound()}>
 // 		 Play Sound
@@ -120,11 +121,13 @@ export default PageCanvas;
 const Choices = ({
 	sceneChoices,
 	onUpdateState,
-	onUpdateScore,
+	onUpdateGoodScore,
+	onUpdateBadScore,
 }: {
 	sceneChoices: string[];
 	onUpdateState?: (index: number) => void;
-	onUpdateScore?: (newScore: number) => void;
+	onUpdateGoodScore?: (newScore: number) => void;
+	onUpdateBadScore?: (newScore: number) => void;
 }) => {
 	const selectChoice = (index: number) => {
 		if (onUpdateState) {
@@ -133,11 +136,11 @@ const Choices = ({
 			} else {
 				onUpdateState(20);
 			}
-			if (onUpdateScore && onUpdateState) {
+			if (onUpdateGoodScore && onUpdateState && onUpdateBadScore) {
 				if (index === 0) {
-					onUpdateScore(+1);
+					onUpdateGoodScore(+1);
 				} else {
-					onUpdateScore(0);
+					onUpdateBadScore(+1);
 				}
 				onUpdateState(20);
 			}
