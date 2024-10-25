@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url ="http://localhost/api/Dialogs"
+// const url ="http://localhost/api/Dialogs"
 
 // function fetchData (){
 //     axios.get(url).then(response =>{
@@ -12,7 +12,7 @@ const url ="http://localhost/api/Dialogs"
 function test(dialogs : string[], indexes : number[]) : void{
     
     try {
-        const res = axios.get(
+        axios.get(
             'http://localhost:8000/api/dialogs'
         ).then(response=>{
             indexes.forEach(i => dialogs.push(response.data.member[i].text));
@@ -25,7 +25,7 @@ function test(dialogs : string[], indexes : number[]) : void{
 function choice(choices :string[], indexes : number[]):void{
     console.log("test");
     try {
-        const res = axios.get(
+        axios.get(
             'http://localhost:8000/api/choices'
         ).then(response=>{
             console.log(response.data.member[0].text);
