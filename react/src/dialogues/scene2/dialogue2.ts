@@ -1,11 +1,7 @@
-export type Character = {
-    name: string;
-    dialogue: string[];
-    url?: string;
-    choices: string[];
-};
+import { Character } from "../intro/dialogue";
 
-export const hero: Character = {
+
+export const hiro1: Character = {
     name: "Hiro King",
     dialogue: [
         "Is this old phone still working? ",
@@ -18,13 +14,13 @@ export const hero: Character = {
         
     ],
     url: "",
-    choices: [],
+    choices: ["We cannot ignore the emissions of IT CORP. Let's fund this project!","IT activities have nothing to do with CO₂ emissions.  I'd rather restrain air travel for the executives"],
 };
 
 export const mysterious: Character = {
     name: "Mysterious Voice",
     dialogue: [
-        " Hiro King?",
+        "Hiro King?",
         "Hiro King. So, you think you can replace the great James Arnold King Jr. as the head of IT CORP? ",
         "Very interesting.",
         "Let's see if you can handle that.",
@@ -32,7 +28,7 @@ export const mysterious: Character = {
         "Very carefully.",
     ],
     url: "",
-    choices: ["We cannot ignore the emissions of IT CORP. Let's fund this project!","IT activities have nothing to do with CO₂ emissions.  I'd rather restrain air travel for the executives"],
+    choices: [],
 };
 
 export const minako: Character = {
@@ -52,31 +48,20 @@ export const minako: Character = {
     choices: [],
 };
 
-export const tableauIntro = [
-    {
-        name: "Hiro King",
-        dialogue: 0,
-        img: "",
-    },
+export const sceneOne = [
+    {name: "Hiro King",dialogue: 0,img: "",},
     { name: "Hiro King", dialogue: 1, img: "" },
-
     { name: "Mysterious Voice", dialogue: 0, img: "" },
-
     { name: "Hiro King", dialogue: 2, img: "" },
-
     { name: "Mysterious Voice", dialogue: 1, img: "" },
-
     { name: "Hiro King", dialogue: 3, img: "" },
-
-    { name: "MysteriousVoice", dialogue: 2, img: "" },
-    { name: "MysteriousVoice", dialogue: 3, img: "" },
-    { name: "MysteriousVoice", dialogue: 4, img: "" },
-    { name: "MysteriousVoice", dialogue: 5, img: "" },
-    
+    { name: "Mysterious Voice", dialogue: 2, img: "" },
+    { name: "Mysterious Voice", dialogue: 3, img: "" },
+    { name: "Mysterious Voice", dialogue: 4, img: "" },
+    { name: "Mysterious Voice", dialogue: 5, img: "" },
     { name: "Hiro King", dialogue: 4, img: "" },
     { name: "Hiro King", dialogue: 5, img: "" },
     { name: "Hiro King", dialogue: 6, img: "" },
-
     { name: "Minako Parsnip", dialogue: 0, img: "/parsnip_normal 1.png" },
     { name: "Minako Parsnip", dialogue: 1, img: "/parsnip_angry 1.png" },
     { name: "Minako Parsnip", dialogue: 2, img: "/parsnip_normal 1.png" },
