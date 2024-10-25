@@ -8,7 +8,9 @@ const GoodEnd = () => {
 			<p className="text">
 				Thanks to your decisions, you have saved the world !
 			</p>
-
+			<audio controls loop>
+				<source src="/sound/GoodEnding.mp3" type="audio/mp3"></source>
+			</audio>
 			<button className="btn">Quitter le jeu</button>
 		</main>
 	);
