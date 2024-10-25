@@ -11,6 +11,7 @@ import {
 import BadEnd from "./components/BadEnd/BadEnd";
 
 import GoodEnd from "./components/GoodEnd/GoodEnd";
+import axios from "axios";
 
 function App() {
 	const [scene, setScene] = useState(0);
@@ -22,6 +23,7 @@ function App() {
 	};
 
 	return (
+
 		<>
 			{scene === 0 ? (
 				<PageCanvas
