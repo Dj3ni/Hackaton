@@ -3,7 +3,7 @@ const BadEnd = () => {
 	return (
 		<main className="badEnd">
 			<p className="text">
-				Because of yours decisions, you have set the world on fire !
+				Because of your decisions, you have set the world on fire !
 			</p>
 			<button className="btn">Quitter le jeu</button>
 		</main>

@@ -1,9 +1,12 @@
 import "./GoodEnd.css";
-const GoodeEnd = () => {
+const GoodEnd = () => {
+	// const resetGame = () => {
+	// 	window.location.reload();
+	// };
 	return (
 		<main className="goodEnd">
 			<p className="text">
-				Thanks to yours decisions, you have saved the world !
+				Thanks to your decisions, you have saved the world !
 			</p>
 
 			<button className="btn">Quitter le jeu</button>
@@ -11,4 +14,4 @@ const GoodeEnd = () => {
 	);
 };
 
-export default GoodeEnd;
+export default GoodEnd;

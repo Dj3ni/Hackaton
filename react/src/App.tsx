@@ -9,7 +9,8 @@ import {
 	hiro1,
 } from "./dialogues/scene2/dialogue2";
 import BadEnd from "./components/BadEnd/BadEnd";
-import GoodeEnd from "./components/GoodEnd/GoodEnd";
+
+import GoodEnd from "./components/GoodEnd/GoodEnd";
 
 function App() {
 	const [scene, setScene] = useState(0);
@@ -43,7 +44,7 @@ function App() {
 					onUpdateBadScore={setBadScore}
 				/>
 			) : null}
-			{badScore > goodScore && scene === 2 ? <BadEnd /> : <GoodeEnd />}
+			{badScore > goodScore && scene === 2 ? <BadEnd /> : <GoodEnd />}
 		</>
 	);
 }
