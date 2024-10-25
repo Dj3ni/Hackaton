@@ -82,8 +82,6 @@ const Choices = ({
 		if (index === 1) {
 			onUpdateState(26);
 		} else {
-			console.log("click");
-
 			onUpdateState(20);
 		}
 	};
@@ -100,3 +98,5 @@ const Choices = ({
 
 	return <div className="choices">{displayChoices}</div>;
 };
+
+const Answers = () => {};
