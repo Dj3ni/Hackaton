@@ -20,6 +20,7 @@ function App() {
 
 	const updateScene = (newScene: number) => {
 		setScene(newScene);
+		
 	};
 
 	return (
