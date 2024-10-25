@@ -2,47 +2,66 @@
 
 namespace App\Entity;
 
-use App\Repository\StoryNodeRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
+use App\Repository\StoryNodeRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 #[ORM\Entity(repositoryClass: StoryNodeRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    operations: [
+        new Get(), // Autorise seulement GET (lecture)
+        new Post() // Autorise POST (création)
+    ],
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
+
+
 class StoryNode
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['post:read', 'post:write'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $title = null;
 
     /********************** Relations ***********/ 
     /**
-     * @var Collection<int, Storychoice>
+     * @var Collection<int, StoryChoice>
      */
-    #[ORM\OneToMany(targetEntity: Storychoice::class, mappedBy: 'storyNode')]
+    #[ORM\OneToMany(targetEntity: StoryChoice::class, mappedBy: 'storyNode')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $storyChoices;
 
     /**
      * @var Collection<int, Ending>
      */
     #[ORM\OneToMany(targetEntity: Ending::class, mappedBy: 'storyNode')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $endings;
 
     /**
      * @var Collection<int, Dialogs>
      */
     #[ORM\OneToMany(targetEntity: Dialogs::class, mappedBy: 'storyNode')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $dialogs;
 
     /**
      * @var Collection<int, AssetStory>
      */
     #[ORM\OneToMany(targetEntity: AssetStory::class, mappedBy: 'storyNode')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $assetsStories;
 
     public function __construct()
@@ -71,14 +90,14 @@ class StoryNode
     }
 
     /**
-     * @return Collection<int, Storychoice>
+     * @return Collection<int, StoryChoice>
      */
     public function getStoryChoices(): Collection
     {
         return $this->storyChoices;
     }
 
-    public function addStoryChoice(Storychoice $storyChoice): static
+    public function addStoryChoice(StoryChoice $storyChoice): static
     {
         if (!$this->storyChoices->contains($storyChoice)) {
             $this->storyChoices->add($storyChoice);
@@ -88,7 +107,7 @@ class StoryNode
         return $this;
     }
 
-    public function removeStoryChoice(Storychoice $storyChoice): static
+    public function removeStoryChoice(StoryChoice $storyChoice): static
     {
         if ($this->storyChoices->removeElement($storyChoice)) {
             // set the owning side to null (unless already changed)

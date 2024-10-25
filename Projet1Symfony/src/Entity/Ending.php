@@ -2,23 +2,35 @@
 
 namespace App\Entity;
 
-use App\Repository\EndingRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\EndingRepository;
 use ApiPlatform\Metadata\ApiResource;
-
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity(repositoryClass: EndingRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    operations: [
+        new Get(), // Autorise seulement GET (lecture)
+        new Post() // Autorise POST (création)
+    ],
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
+
 class Ending
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['user:read'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $text = null;
     
 /********************** Relations ***********/ 
@@ -26,9 +38,11 @@ class Ending
      * @var Collection<int, Choice>
      */
     #[ORM\OneToMany(targetEntity: Choice::class, mappedBy: 'ending')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private Collection $choices;
 
     #[ORM\ManyToOne(inversedBy: 'endings')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?StoryNode $storyNode = null;
 
     public function __construct()

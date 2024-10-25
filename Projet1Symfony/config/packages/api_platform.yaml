@@ -5,3 +5,20 @@ api_platform:
         stateless: true
         cache_headers:
             vary: ['Content-Type', 'Authorization', 'Origin']
+    collection:
+        pagination:
+            enabled: true
+            enabled_parameter_name: 'pagination'  # Nom du paramètre pour activer la pagination
+            items_per_page_parameter_name: 'itemsPerPage'  # Nom du paramètre pour le nombre d'éléments par page
+            page_parameter_name: 'page'  # Nom du paramètre pour le numéro de page
+            partial_parameter_name: 'partial'  # Nom du paramètre pour le chargement partiel
+    eager_loading:
+        enabled: true
+        max_joins: 30
+        fetch_partial: true
+        force_eager: false
+
+
+    # formats:
+    # json: ['application/json']
+    # xml:  ['application/xml']

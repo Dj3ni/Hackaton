@@ -2,35 +2,52 @@
 
 namespace App\Entity;
 
-use App\Repository\DialogsRepository;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\ApiResource;
 
+use App\Repository\DialogsRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity(repositoryClass: DialogsRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    operations: [
+        new Get(), // Autorise seulement GET (lecture)
+        new Post() // Autorise POST (création)
+    ],
+    normalizationContext: ['groups' => ['read']],
+    denormalizationContext: ['groups' => ['write']]
+)]
+
 
 class Dialogs
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['user:read'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $text = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?string $state = null;
     
 /********************** Relations ***********/ 
     #[ORM\ManyToOne(inversedBy: 'dialogs')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?Choice $choice = null;
 
     #[ORM\ManyToOne(inversedBy: 'dialogs')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?StoryNode $storyNode = null;
 
     #[ORM\ManyToOne(inversedBy: 'dialogs')]
+    #[Groups(['post:read', 'post:write', 'user:read'])]
     private ?Character $perso = null;
 
     public function getId(): ?int
