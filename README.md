@@ -11,7 +11,7 @@ Pour initialiser le git flow chez vous aussi
 ```
 git flow init
 ```
-Il faut changer la master en main et pour le reste tapez sur enter jusqu'à la fin.
+Il faut changer la master en main et pour le reste
 
 Quand vous clonez le repos, vous allez être directement sur la branche "Develop". Merci de ne rien créer/modifier dessus. 
 Faites directement la commande suivante afin de créer votre branche de travail.
@@ -73,6 +73,6 @@ Pour pouvoir utiliser la plateforme API, il faut faire ceci:
 3. Une fois tout ça lancé, mettre l'adresse suivante dans  le navigateur
 
   ```
-  http://localhost:8000/api
+  localhost:8000/api
   ```
   
