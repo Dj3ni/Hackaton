@@ -1,5 +1,21 @@
 # Hackaton
 
+Remarque: J'ai bougé tout le contenu du dossier react en dehors car le index.html doit être accessible directement lors du déploiement, je suis encore en train de chipoter pour voir comment l'héberger sur mon server :)
+
+## Lancer le projet
+1. Cloner le projet sur votre machine et l'ouvrir dans vs code
+2. Directement dans "Hackaton"
+
+```
+   npm i
+//ou
+  npm install
+
+//suivi de
+   npm run dev
+```
+3. Un fois cela fait, le projet va s'exécuter automatiquement dans votre navigateur
+
 ## Comment utiliser Git en groupe?
 J'ai créé un repos utilisant git flow du coup merci d'utiliser ces commandes-ci:
 
