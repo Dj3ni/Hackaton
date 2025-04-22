@@ -1,10 +1,10 @@
-// import { Character } from "../intro/dialogue";
-// import axios from "axios";
+import { Character } from "../intro/dialogue";
+import axios from "axios";
 
-// const url ="http://localhost/api/Dialogs"
+//const url ="http://localhost/api/Dialogs"
 // const url ="http://localhost/api/Dialogs"
 
-// function dialog(dialogs : string[], indexes : number[]) : void{
+function dialog(dialogs : string[], indexes : number[]) : void{
     
     try {
         axios.get(
@@ -12,7 +12,7 @@
         ).then(response=>{
             indexes.forEach(i => dialogs.push(response.data.member[i].text));
         });
-    } catch (error) {
+    } catch{
         console.log("Oups, je n'ai pas trouvé");
     }
 }
@@ -26,14 +26,14 @@ function choice(choices :string[], indexes : number[]):void{
             console.log(response.data.member[0].text);
             indexes.forEach(i => choices.push(response.data.member[i].text));
         });
-    } catch (error) {
+    } catch {
         console.log("Oups, je n'ai pas trouvé");
     }
 }
 
-// export const hiro1: Character = {
-//     name: "Hiro King",
-//     dialogue: [
+export const hiro1: Character = {
+     name: "Hiro King",
+    dialogue: [
 //         // "Is this old phone still working? ",
 //         // "(I probably have to answer.) ",
 //         // "Y… yes? (Wow, this guy sounds creepy…)",
@@ -41,33 +41,33 @@ function choice(choices :string[], indexes : number[]):void{
 //         // "(What was that?)",
 //         // "Aw. Err… Come in!",
 //         // "... Hello?",
-//     ],
-//     url: "",
-//     choices: ["We cannot ignore the emissions of IT CORP. Let's fund this project!","IT activities have nothing to do with CO₂ emissions.  I'd rather restrain air travel for the executives"],
-// };
+     ],
+     url: "",
+    choices: ["We cannot ignore the emissions of IT CORP. Let's fund this project!","IT activities have nothing to do with CO₂ emissions.  I'd rather restrain air travel for the executives"],
+};
 
-// dialog(hiro1.dialogue, [28,29,31,33,38,39,40])
-// choice(hiro1.choices, [2,3]);
+dialog(hiro1.dialogue, [28,29,31,33,38,39,40])
+choice(hiro1.choices, [2,3]);
 
-// export const mysterious: Character = {
-//     name: "Mysterious Voice",
-//     dialogue: [
+export const mysterious: Character = {
+     name: "Mysterious Voice",
+     dialogue: [
 //         "Hiro King?",
 //         "Hiro King. So, you think you can replace the great James Arnold King Jr. as the head of IT CORP? ",
 //         "Very interesting.",
 //         "Let's see if you can handle that.",
 //         "I will watch you.",
 //         "Very carefully.",
-//     ],
-//     url: "",
-//     choices: [],
-// };
+     ],
+    url: "",
+     choices: [],
+ };
 
-// dialog(mysterious.dialogue, [30,32,34,35,36,37])
+dialog(mysterious.dialogue, [30,32,34,35,36,37])
 
-// export const minako: Character = {
-//     name: "Minako Parsnip",
-//     dialogue: [
+export const minako: Character = {
+     name: "Minako Parsnip",
+     dialogue: [
 //         "Hmm...",
 //         "Ah...",
 //         "S… Sorry! Sorry to interrupt, Mr. King! I'm so sorry!",
@@ -77,11 +77,11 @@ function choice(choices :string[], indexes : number[]):void{
 //         "They ask us to offset the carbon footprints of our numerical activities. They want us to fund a reforestation project in Niger. What should we do?",
 //         "Thank you for your time, sir!",
 //         "I will pass on your directives!"
-//     ],
-//     url: "",
-//     choices: [],
-// };
-// dialog(minako.dialogue,[41,42,43,44,45,46,47,48,49,50])
+     ],
+     url: "",
+     choices: [],
+ };
+dialog(minako.dialogue,[41,42,43,44,45,46,47,48,49,50])
 
 // export const sceneOne = [
 //     {name: "Hiro King",dialogue: 0,img: "",},

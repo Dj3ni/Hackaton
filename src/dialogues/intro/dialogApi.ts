@@ -17,7 +17,7 @@ function test(dialogs : string[], indexes : number[]) : void{
         ).then(response=>{
             indexes.forEach(i => dialogs.push(response.data.member[i].text));
         });
-    } catch (error) {
+    } catch {
         console.log("Oups, je n'ai pas trouvé");
     }
 }
@@ -31,7 +31,7 @@ function choice(choices :string[], indexes : number[]):void{
             console.log(response.data.member[0].text);
             indexes.forEach(i => choices.push(response.data.member[i].text));
         });
-    } catch (error) {
+    } catch {
         console.log("Oups, je n'ai pas trouvé");
     }
 }

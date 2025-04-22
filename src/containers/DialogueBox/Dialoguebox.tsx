@@ -1,4 +1,4 @@
-import "./dialoguebox.css";
+import "./dialogueBox.css";
 
 const DialogueBox = ({ text = "" }: { text: string }) => {
 	return (
