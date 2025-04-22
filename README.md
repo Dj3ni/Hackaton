@@ -1,6 +1,7 @@
 # Hackaton
 
-Remarque: J'ai bougé tout le contenu du dossier react en dehors car le index.html doit être accessible directement lors du déploiement, je suis encore en train de chipoter pour voir comment l'héberger sur mon server :)
+Remarque: J'ai bougé tout le contenu du dossier react en dehors car le index.html doit être accessible directement lors du déploiement, je suis encore en train de chipoter pour voir comment l'héberger sur mon serveur :)
+En attendant, il est déployé sur [https://green-hiro.vercel.app/](https://green-hiro.vercel.app/) avec quelques bugs graphiques liés au déploiement mais sinon 100% fonctionnel :)
 
 ## Lancer le projet
 1. Cloner le projet sur votre machine et l'ouvrir dans vs code
